@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../static/css/vars.css" />
+    <link rel="stylesheet" href="../static/css/style_login.css" />
+    <link rel="stylesheet" href="../static/css/style_global.css" />
+
+    <style> a,button,input,select,h1,h2,h3,h4,h5,
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        color:white;
+        appearance: none;
+        background: none;
+
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+
+    <title>NTUAflix - Login</title>
+  </head>
+  <body class="log-in">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <div class="log-in-to-ntua-flix">
+      <span>
+        <span class="log-in-to-ntua-flix-span">Log In to</span>
+        <span class="log-in-to-ntua-flix-span2">N</span>
+        <span class="log-in-to-ntua-flix-span3">t</span>
+        <span class="log-in-to-ntua-flix-span4">u</span>
+        <span class="log-in-to-ntua-flix-span5">a</span>
+        <span class="log-in-to-ntua-flix-span6">F</span>
+        <span class="log-in-to-ntua-flix-span7">l</span>
+        <span class="log-in-to-ntua-flix-span8">i</span>
+        <span class="log-in-to-ntua-flix-span9">x</span>
+        <span class="log-in-to-ntua-flix-span10">!</span>
+      </span>
+    </div>
+    <form class = "login-form" action="/Login" method="POST">
+      <div class="frame-2">
+        <div class="wf-input-field">
+          <div class="label-stack">
+            <div class="label">Username</div>
+          </div>
+          <input type="text" name="username" class="text-input"></input>
+        </div>
+        <div class="wf-input-field">
+          <div class="label-stack">
+            <div class="label">Password</div>
+          </div>
+          <input type="password" name="password" class="text-input"></input>
+        </div>
+      </div>
+      <button class="login2" type="submit">
+        <div class="state-layer3">
+          <div class="label-text2">Log in</div>
+        </div>
+      </button>
+    </form>
+  </body>
+</html>

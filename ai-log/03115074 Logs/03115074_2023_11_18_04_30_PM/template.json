@@ -1,0 +1,18 @@
+{
+    "answers":{
+        "phase": "coding",
+        "action": "chatbot",
+        "scope": "chatbot",
+        "prog lang": "python",
+        "other prog lang": "<fill in>",
+        "tool": "chat gpt 3.x",
+        "other tool": "<fill in>",
+        "tool option": "free",
+        "tool experience": "some",
+        "time allocated (h)": "0.20",
+        "time saved estimated (h)": "1",
+        "quality of ai help": "minor modifications needed",
+        "generic feeling": "needs work",
+        "notes": "<fill in>"
+    }
+}

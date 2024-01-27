@@ -1,0 +1,158 @@
+.movie-profile,
+.movie-profile * {
+  box-sizing: border-box;
+}
+.movie-profile { /* test */
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.movie-profile-container {
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  overflow-y: auto;
+}
+.movie-header {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.shrek {
+  color: #000000;
+  text-align: left;
+  font-family: "Roboto-SemiBold", sans-serif;
+  font-size: 48px;
+  line-height: 48px;
+  font-weight: 600;
+  position: relative;
+}
+.group-1 {
+  flex-shrink: 0;
+  width: 57px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+._7-9-10 {
+  color: var(--material-theme-sys-light-primary, #af2b3e);
+  text-align: left;
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 400;
+  position: relative;
+}
+.movie-header-info {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.start-year {
+  color: #000000;
+  text-align: left;
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 400;
+  position: relative;
+}
+.runtime-minuets {
+  color: #000000;
+  text-align: left;
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 400;
+  position: relative;
+}
+.genres {
+  color: #000000;
+  text-align: left;
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 400;
+  position: relative;
+}
+.thumbnail-large {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 722px;
+  height: 469px;
+  position: relative;
+  overflow: hidden;
+}
+.shrek-1 {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  object-fit: cover;
+}
+.movie-desctription {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+  align-self: stretch;
+}
+.movie-info {
+  padding: 5px 0px 5px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.directors {
+  color: #000000;
+  text-align: left;
+  font-family: "Roboto-SemiBold", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  position: relative;
+}
+.actors {
+  color: #000000;
+  text-align: left;
+  font-family: "Roboto-SemiBold", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  position: relative;
+}

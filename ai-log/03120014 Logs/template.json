@@ -1,0 +1,19 @@
+{
+    "answers": {
+        "phase": "coding",
+        "action":   "source code authoring",
+        "scope": "api",
+        "action experience": ["big", "fair", "little", "none"],
+        "prog lang": "python",
+        "other prog lang": "<fill in>",
+        "tool": "chat gpt 3.x",
+        "other tool": "<fill in>",
+        "tool option": "free",
+        "tool experience": "enough",
+        "time allocated (h)": "<fill in>",
+        "time saved estimate (h)": "<fill in>", 
+        "quality of ai help": ["ready-to-use", "minor modifications needed", "major modifications needed", "unusable"],
+        "generic feeling": ["great as-is", "great in the future", "needs work", "makes not sense"],
+        "notes": "<fill in>"
+    }
+}

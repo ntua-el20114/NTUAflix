@@ -1,0 +1,89 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "Hey there", "Greetings"],
+      "responses": ["Hello! How can I assist you today?", "Hi! What can I do for you?", "Hey there! How can I help you with movie recommendations?"],
+      "context_set": ""
+    },
+    {
+      "tag": "mike",
+      "patterns": ["Is Mike handsome?", "What do you think about Mike's looks?", "Can I inquire about Mike's looks?", "Omg Mike is so hot."],
+      "responses": ["Well Mike is quite handsome", "I sort of have a crash on him.", "I think Mike is quite a handsome man!"],
+      "context_set": ""
+    },
+    {
+      "tag": "personalinfo",
+      "patterns": ["Can you give me his phone number?", "Do you have his phone number?", "Do you think maybe I could get his phone number?", "Do you think maybe I could get his address?", "Do you think maybe I could get his social security number?"],
+      "responses": ["I cannot share personal information", "Mike is mine, back off!", "I’m sorry, but I can’t provide this information. Under the new GDPR, I am not allowed to share personal data without permission."],
+      "context_set": ""
+    },
+    {
+      "tag": "bad",
+      "patterns": ["I don't like Mike", "I think Mike sucks", "Mike is a bum", "Mike is not a good boy", "Mike is boring"],
+      "responses": ["You shut your mouth, Mike is amazing", "How dare you, Mike is the man", "Mike is one of a kind!", "Could you not .. like .. could you not though?"],
+      "context_set": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "Goodbye", "See you later", "Take care"],
+      "responses": ["Goodbye! Have a great day!", "See you later!", "Take care!"],
+      "context_set": ""
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["My guy!","Cool","Thanks", "Thank you", "Appreciate it", "Thanks a lot"],
+      "responses": ["You're welcome!", "Glad I could help!", "Anytime!"],
+      "context_set": ""
+    },
+    {
+      "tag": "recommendation",
+      "patterns": ["Can you recommend a movie?", "I need a movie suggestion", "What should I watch?", "Any good movies to watch?"],
+      "responses": ["Sure! What genre or type of movie are you interested in?", "Of course! Any specific genre in mind?", "Absolutely, do you have a preferred genre?"],
+      "context_set": ""
+    },
+    {
+      "tag": "genre_selection",
+      "patterns": ["Action", "Comedy", "Drama", "Horror", "Science Fiction", "Romance", "Adventure", "Fantasy", "Animated"],
+      "responses": ["Great choice! Let me find some fantastic movies in the genre for you.", "Nice! I'll look up some top movies in the genre.", "Sure, let me fetch some popular movies in the genre."],
+      "context_set": ""
+    },
+    {
+      "tag": "recommendation_result",
+      "patterns": [],
+      "responses": ["Here are some movies you might enjoy.", "I found these movies for you.", "Check out these top movies."],
+      "context_set": ""
+    },
+    {
+      "tag": "ratings",
+      "patterns": ["What are the highest-rated movies?", "Show me top-rated films", "Which movies have the best ratings?", "List highly-rated films"],
+      "responses": ["Sure! I'll find you a list of highly-rated movies.", "Great! I'll fetch the highest-rated movies for you.", "Let me find the top-rated movies for you."],
+      "context_set": ""
+    },
+    {
+      "tag": "actors",
+      "patterns": ["Movies starring {actor}", "I want to watch movies with {actor}", "Films featuring {actor}", "Movies acted by {actor}"],
+      "responses": ["I'll search for movies from this actor.", "Sure! Let me find movies starring this actor.", "I'll fetch movies with this actor for you."],
+      "context_set": ""
+    },
+    {
+      "tag": "director",
+      "patterns": ["Movies directed by {director}", "I want to watch films by {director}", "Films directed by {director}", "Movies from {director}"],
+      "responses": ["I'll look up movies directed by this director.", "Sure! Let me find films by this director.", "I'll fetch movies directed by this director."],
+      "context_set": ""
+    },
+    {
+      "tag": "thank_you",
+      "patterns": ["Thank you so much!", "Thanks for the recommendations", "Appreciate your help", "Thanks a bunch!"],
+      "responses": ["You're welcome! Enjoy your movie time!", "Glad I could assist. Happy watching!", "Anytime! If you need more recommendations, just ask."],
+      "context_set": "" 
+    },
+    {
+      "tag": "fallback",
+      "patterns": [],
+      "responses": ["Sorry, I didn't quite get that. Could you please rephrase?", "I'm not sure I understand. Can you try asking differently?", "Apologies, I didn't catch that. Could you try again?"],
+      "context_set": ""
+    }
+  ]
+}
+

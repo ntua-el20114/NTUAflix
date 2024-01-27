@@ -1,0 +1,124 @@
+.catalogue,
+
+.catalogue * {
+  box-sizing: border-box;
+}
+
+.catalogue {
+  background: var(--material-theme-white, #ffffff);
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  padding-top: var(--navbar-height);
+  position: relative;
+}
+
+.catalogue-container {
+  padding: 25px 10px 10px 10px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.movies-section-restricted {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 680px;
+  position: relative;
+}
+
+.movies-section {
+  color: #000000;
+  text-align: left;
+  font-family: "Roboto-Medium", sans-serif;
+  font-size: 36px;
+  line-height: 20px;
+  font-weight: 500;
+  position: relative;
+  width: 100vw;
+  height: 2vh;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.movies-section2 {
+  padding: 15px 20px 15px 20px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 15px 20px;
+  row-gap: 6vh;
+  column-gap: 1vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-thumbnail {
+  flex-shrink: 0;
+  width: 15vw;
+  height: 20vh;
+  position: relative;
+}
+
+.thumbnail {
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 10;
+  align-items: center;
+  justify-content: center;
+  width: 15vw;
+  height: 20vh;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+
+.thumbnail2 {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  object-fit: cover;
+}
+
+.movie-or-tv-series-title-goes-here {
+  color: #000000;
+  text-align: left;
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 2vh;
+  line-height: 3vh;
+  font-weight: 400;
+  position: absolute;
+  right: 3.79%;
+  left: 2.84%;
+  width: 93.36%;
+  bottom: 0%;
+  top: 100.0%;
+  height: 20.94%;
+  margin-bottom: 45px;
+}

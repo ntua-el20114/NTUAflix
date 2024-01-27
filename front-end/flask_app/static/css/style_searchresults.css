@@ -1,0 +1,108 @@
+.search-results,
+.search-results * {
+  box-sizing: border-box;
+}
+.search-results {
+  background: var(--material-theme-white, #ffffff);
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  padding-top: var(--navbar-height);
+  position: relative;
+  overflow: hidden;
+}
+.search-results-container {
+  padding: 0px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.movies-section-full-page {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 943px;
+  position: relative;
+}
+.movies-section {
+  color: #000000;
+  text-align: left;
+  font-family: "Roboto-Medium", sans-serif;
+  font-size: 36px;
+  line-height: 20px;
+  font-weight: 500;
+  position: relative;
+  width: 537px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.movies-section2 {
+  padding: 15px 20px 15px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 1651px;
+  position: relative;
+  overflow: hidden;
+}
+.movie-thumbnail {
+  flex-shrink: 0;
+  width: 211px;
+  height: 191px;
+  position: relative;
+}
+.thumbnail {
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 211px;
+  height: 150px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+.thumbnail2 {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  object-fit: cover;
+}
+.movie-or-tv-series-title-goes-here {
+  color: #000000;
+  text-align: left;
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  position: absolute;
+  right: 3.79%;
+  left: 2.84%;
+  width: 93.36%;
+  bottom: 0%;
+  top: 79.06%;
+  height: 20.94%;
+}

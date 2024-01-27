@@ -1,0 +1,584 @@
+CREATE TABLE name ( 
+    name_id varchar(100) PRIMARY KEY,
+    primaryName varchar(255),
+    birthYear int,
+    deathYear int,
+    primaryProfession SET('actor','actress','animation_department','art_department','art_director',
+                        'assistant','assistant_director','camera_department','casting_department',
+                        'casting_director','cinematographer','composer','costume_department',
+                        'costume_designer','director','editor','editorial_department','electrical_department',
+                        'executive','legal','location_management','make_up_department','manager',
+                        'miscellaneous','music_artist','music_department','podcaster','producer',
+                        'production_department','production_designer','production_manager',
+                        'publicist','script_department','nan','set_decorator','sound_department',
+                        'soundtrack','special_effects','stunts','talent_agent','transportation_department',
+                        'visual_effects','writer'),
+    url varchar(255));
+
+CREATE TABLE title ( 
+    title_id varchar(100) PRIMARY KEY,
+    titleType varchar(100),
+    originalTitle varchar(100),
+    isAdult ENUM('0','1'),
+    startYear int,
+    runtimeMinutes int,
+    genres SET('Action','Adult','Adventure','Animation','Biography','Comedy','Crime','Documentary',
+                 'Drama','Family','Fantasy','History','Horror','Music','Musical','Mystery','News',
+                 'Romance','Sci-Fi','Short','Sport','Thriller','War','Western'),
+    url varchar(255)); 
+
+CREATE TABLE app_user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_role ENUM('administrator', 'standard_user', 'developer') NOT NULL,
+    token varchar(100) UNIQUE,
+    first_name varchar(255) NOT NULL,
+    last_name varchar(255) NOT NULL,
+    birthdate date,
+    email varchar(255) UNIQUE,
+    username varchar(255) UNIQUE,
+    password varchar(255));
+
+CREATE TABLE aka ( 
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title_id varchar(100),
+    ordering int,
+    title varchar(255),
+    region varchar(100),
+    language varchar(255),
+    types varchar(255),
+    isOriginalTitle ENUM('0','1'),
+    attributes varchar(255),
+    FOREIGN KEY (title_id) REFERENCES title(title_id) ON DELETE CASCADE);
+
+CREATE TABLE imdb_rating ( 
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title_id varchar(100),
+    averageRating float,
+    numVotes int,
+    FOREIGN KEY (title_id) REFERENCES title(title_id) ON DELETE CASCADE);
+
+CREATE TABLE episodes ( 
+    id varchar(100) PRIMARY KEY,
+    parent_id varchar(100),
+    seasonNumber INT,
+    episodeNumber INT,
+    FOREIGN KEY (parent_id) REFERENCES title(title_id) ON DELETE CASCADE);
+
+CREATE TABLE principals (  
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title_id varchar(100),
+    name_id varchar(100),
+    ordering INT,
+    category varchar(50),
+    characters varchar(50),
+    FOREIGN KEY (title_id) REFERENCES title(title_id) ON DELETE CASCADE,
+    FOREIGN KEY (name_id) REFERENCES name(name_id) ON DELETE CASCADE);
+
+CREATE TABLE crew (  
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title_id varchar(100),
+    director_id varchar(100),
+    writer_id varchar(100),
+    FOREIGN KEY (director_id) REFERENCES name(name_id) ON DELETE CASCADE,
+    FOREIGN KEY (writer_id) REFERENCES name(name_id) ON DELETE CASCADE);
+
+CREATE TABLE user_preferences (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id int,
+    title_id varchar(100),
+    FOREIGN KEY (title_id) REFERENCES title(title_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES app_user(id) ON DELETE SET NULL);
+
+CREATE TABLE user_rating (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    title_id varchar(100),
+    rating int,
+    FOREIGN KEY (title_id) REFERENCES title(title_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES app_user(id) ON DELETE SET NULL);
+
+I have this database can you write some unit tests in python ?? 
+
+ChatGPT
+Sure, writing unit tests for a database involves testing various operations like inserting data, querying data, and handling constraints. Here's an example of how you might structure some unit tests using Python and the unittest library:
+
+python
+Copy code
+import unittest
+import pymysql  # or any other DB connector library you're using
+
+# Initialize your database connection
+db = pymysql.connect(
+    host='your_host',
+    user='your_username',
+    password='your_password',
+    database='your_database'
+)
+
+class TestDatabase(unittest.TestCase):
+
+    def setUp(self):
+        # Prepare the database for testing - e.g., create tables, insert test data
+        with db.cursor() as cursor:
+            # Create tables
+            # Add necessary setup queries here to prepare your database
+
+    def tearDown(self):
+        # Clean up after each test - e.g., delete test data, drop tables
+        with db.cursor() as cursor:
+            # Delete test data or any other necessary cleanup queries
+            # Drop tables or perform any cleanup operations
+
+    def test_insert_data(self):
+        # Test inserting data into tables
+        with db.cursor() as cursor:
+            # Perform an insert operation and assert its success
+            # Example: Insert data into a table and assert insertion was successful
+
+    def test_query_data(self):
+        # Test querying data from tables
+        with db.cursor() as cursor:
+            # Perform a select query and assert the expected result
+            # Example: Query data from a table and assert the expected output
+
+    def test_delete_data(self):
+        # Test deleting data from tables
+        with db.cursor() as cursor:
+            # Perform a delete operation and assert its success
+            # Example: Delete data from a table and assert deletion was successful
+
+if __name__ == '__main__':
+    unittest.main()
+This skeleton provides the structure for your test cases. You'll need to fill in the specific test cases within each method (test_insert_data, test_query_data, test_delete_data) to test the database operations.
+
+Remember to handle exceptions, simulate edge cases, and ensure your tests cover various scenarios to provide thorough coverage. Adjust the database connection settings and queries as per your database connector library and database structure.
+User
+can you write unit tests ? 
+
+ChatGPT
+Certainly! To write unit tests for the given database, I'll use the unittest framework along with a testing library suitable for database interactions like unittest.mock and a library to handle database connections like sqlite3.
+
+Below is an example of unit tests for inserting and querying data into/from the name table:
+
+python
+Copy code
+import unittest
+import sqlite3  # Using sqlite3 for demonstration purposes
+
+# Replace these connection details with your actual database connection
+DB_NAME = ':memory:'  # Using in-memory SQLite for demonstration
+conn = sqlite3.connect(DB_NAME)
+
+class TestDatabase(unittest.TestCase):
+
+    def setUp(self):
+        # Create the 'name' table
+        with conn:
+            conn.execute('''
+                CREATE TABLE name (
+                    name_id varchar(100) PRIMARY KEY,
+                    primaryName varchar(255),
+                    birthYear int,
+                    deathYear int,
+                    primaryProfession varchar(255),
+                    url varchar(255)
+                )
+            ''')
+
+    def tearDown(self):
+        # Drop the 'name' table after each test
+        with conn:
+            conn.execute('DROP TABLE IF EXISTS name')
+
+    def test_insert_data(self):
+        # Test inserting data into the 'name' table
+        with conn:
+            # Insert test data into the 'name' table
+            conn.execute('''
+                INSERT INTO name (name_id, primaryName, birthYear, deathYear, primaryProfession, url)
+                VALUES (?, ?, ?, ?, ?, ?)
+            ''', ('1', 'John Doe', 1980, None, 'actor', 'https://example.com/johndoe'))
+
+            # Query the inserted data
+            cursor = conn.execute('SELECT * FROM name WHERE name_id = ?', ('1',))
+            row = cursor.fetchone()
+
+            # Assert that the data was inserted and retrieved correctly
+            self.assertIsNotNone(row)
+            self.assertEqual(row[0], '1')  # name_id
+            self.assertEqual(row[1], 'John Doe')  # primaryName
+            self.assertEqual(row[2], 1980)  # birthYear
+            self.assertIsNone(row[3])  # deathYear
+            self.assertEqual(row[4], 'actor')  # primaryProfession
+            self.assertEqual(row[5], 'https://example.com/johndoe')  # url
+
+if __name__ == '__main__':
+    unittest.main()
+This test case sets up a temporary SQLite database in memory, creates the name table, inserts test data, and queries that data to ensure it was inserted correctly.
+
+You can expand these tests by adding more cases for other tables, testing edge cases, handling constraints, and testing various operations such as updates and deletions based on your database functions and requirements. Remember to replace the SQLite usage with your actual database library and connection setup.
+User
+write another function for deleting the John Doe insertion
+
+ChatGPT
+Certainly! Below is an additional test function that specifically tests the deletion functionality for the 'John Doe' insertion in the name table:
+
+python
+Copy code
+import unittest
+import sqlite3
+
+DB_NAME = ':memory:'
+conn = sqlite3.connect(DB_NAME)
+
+class TestDatabase(unittest.TestCase):
+
+    # ... (previous setup and tearDown methods)
+
+    def test_delete_data(self):
+        # Test deleting data from the 'name' table
+        with conn:
+            # Insert 'John Doe' data for deletion
+            conn.execute('''
+                INSERT INTO name (name_id, primaryName, birthYear, deathYear, primaryProfession, url)
+                VALUES (?, ?, ?, ?, ?, ?)
+            ''', ('1', 'John Doe', 1980, None, 'actor', 'https://example.com/johndoe'))
+
+            # Perform deletion of 'John Doe' data
+            conn.execute('DELETE FROM name WHERE name_id = ?', ('1',))
+
+            # Query to check if 'John Doe' data exists after deletion
+            cursor = conn.execute('SELECT * FROM name WHERE name_id = ?', ('1',))
+            row = cursor.fetchone()
+
+            # Assert that the row is None, indicating successful deletion
+            self.assertIsNone(row, "Deletion failed, 'John Doe' data still exists")
+
+if __name__ == '__main__':
+    unittest.main()
+This test case specifically focuses on inserting 'John Doe' data and then ensuring that the deletion operation removes this data by querying it again after the deletion and verifying that the fetched row is None.
+
+You can incorporate this function alongside other test cases to comprehensively test various operations and scenarios for your database tables. Adjust the database connection and queries as needed for your actual database setup.
+User
+use my sql connector instead
+
+ChatGPT
+Absolutely! Let's modify the test cases to use the pymysql library for MySQL connections. Ensure you've installed the pymysql library (pip install pymysql) before running these tests. Here's an example:
+
+python
+Copy code
+import unittest
+import pymysql
+
+# Replace these connection details with your actual database connection
+DB_CONFIG = {
+    'host': 'your_host',
+    'user': 'your_username',
+    'password': 'your_password',
+    'database': 'your_database',
+}
+
+class TestDatabase(unittest.TestCase):
+
+    def setUp(self):
+        # Establish a connection to the MySQL database
+        self.conn = pymysql.connect(**DB_CONFIG)
+        self.cursor = self.conn.cursor()
+
+        # Create the 'name' table
+        create_table_query = '''
+            CREATE TABLE IF NOT EXISTS name (
+                name_id varchar(100) PRIMARY KEY,
+                primaryName varchar(255),
+                birthYear int,
+                deathYear int,
+                primaryProfession SET('actor','actress',...),  # Add your professions here
+                url varchar(255)
+            )
+        '''
+        self.cursor.execute(create_table_query)
+        self.conn.commit()
+
+    def tearDown(self):
+        # Drop the 'name' table after each test
+        drop_table_query = 'DROP TABLE IF EXISTS name'
+        self.cursor.execute(drop_table_query)
+        self.conn.commit()
+        self.conn.close()
+
+    def test_insert_and_delete_data(self):
+        # Test inserting and deleting data from the 'name' table
+        insert_query = '''
+            INSERT INTO name (name_id, primaryName, birthYear, deathYear, primaryProfession, url)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        '''
+        delete_query = 'DELETE FROM name WHERE name_id = %s'
+
+        # Insert 'John Doe' data
+        self.cursor.execute(insert_query, ('1', 'John Doe', 1980, None, 'actor', 'https://example.com/johndoe'))
+        self.conn.commit()
+
+        # Check if 'John Doe' data exists before deletion
+        self.cursor.execute('SELECT * FROM name WHERE name_id = %s', ('1',))
+        row_before_deletion = self.cursor.fetchone()
+        self.assertIsNotNone(row_before_deletion, "Insertion failed, 'John Doe' data doesn't exist")
+
+        # Delete 'John Doe' data
+        self.cursor.execute(delete_query, ('1',))
+        self.conn.commit()
+
+        # Check if 'John Doe' data exists after deletion
+        self.cursor.execute('SELECT * FROM name WHERE name_id = %s', ('1',))
+        row_after_deletion = self.cursor.fetchone()
+        self.assertIsNone(row_after_deletion, "Deletion failed, 'John Doe' data still exists")
+
+if __name__ == '__main__':
+    unittest.main()
+This script uses the pymysql library to establish a connection to a MySQL database, creates the name table, inserts 'John Doe' data, verifies the insertion, deletes the 'John Doe' data, and verifies the deletion. Ensure to replace the placeholders in DB_CONFIG with your actual MySQL connection details.
+
+Remember to handle exceptions, and adapt these tests to cover additional scenarios or tables in your database as needed.
+User
+import mysql.connector insteda
+
+ChatGPT
+Absolutely! Below is the modified code using the mysql.connector library for MySQL connections. Ensure you have installed mysql-connector-python (pip install mysql-connector-python) before running these tests.
+
+python
+Copy code
+import unittest
+import mysql.connector
+
+# Replace these connection details with your actual database connection
+DB_CONFIG = {
+    'host': 'your_host',
+    'user': 'your_username',
+    'password': 'your_password',
+    'database': 'your_database',
+}
+
+class TestDatabase(unittest.TestCase):
+
+    def setUp(self):
+        # Establish a connection to the MySQL database
+        self.conn = mysql.connector.connect(**DB_CONFIG)
+        self.cursor = self.conn.cursor()
+
+        # Create the 'name' table
+        create_table_query = '''
+            CREATE TABLE IF NOT EXISTS name (
+                name_id varchar(100) PRIMARY KEY,
+                primaryName varchar(255),
+                birthYear int,
+                deathYear int,
+                primaryProfession SET('actor','actress',...),  # Add your professions here
+                url varchar(255)
+            )
+        '''
+        self.cursor.execute(create_table_query)
+        self.conn.commit()
+
+    def tearDown(self):
+        # Drop the 'name' table after each test
+        drop_table_query = 'DROP TABLE IF EXISTS name'
+        self.cursor.execute(drop_table_query)
+        self.conn.commit()
+        self.conn.close()
+
+    def test_insert_and_delete_data(self):
+        # Test inserting and deleting data from the 'name' table
+        insert_query = '''
+            INSERT INTO name (name_id, primaryName, birthYear, deathYear, primaryProfession, url)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        '''
+        delete_query = 'DELETE FROM name WHERE name_id = %s'
+
+        # Insert 'John Doe' data
+        self.cursor.execute(insert_query, ('1', 'John Doe', 1980, None, 'actor', 'https://example.com/johndoe'))
+        self.conn.commit()
+
+        # Check if 'John Doe' data exists before deletion
+        self.cursor.execute('SELECT * FROM name WHERE name_id = %s', ('1',))
+        row_before_deletion = self.cursor.fetchone()
+        self.assertIsNotNone(row_before_deletion, "Insertion failed, 'John Doe' data doesn't exist")
+
+        # Delete 'John Doe' data
+        self.cursor.execute(delete_query, ('1',))
+        self.conn.commit()
+
+        # Check if 'John Doe' data exists after deletion
+        self.cursor.execute('SELECT * FROM name WHERE name_id = %s', ('1',))
+        row_after_deletion = self.cursor.fetchone()
+        self.assertIsNone(row_after_deletion, "Deletion failed, 'John Doe' data still exists")
+
+if __name__ == '__main__':
+    unittest.main()
+This script uses the mysql.connector library to connect to a MySQL database, creates the name table, inserts 'John Doe' data, verifies the insertion, deletes the 'John Doe' data, and verifies the deletion. Remember to replace the placeholders in DB_CONFIG with your actual MySQL connection details.
+User
+    def test_insert_and_delete_data(self):
+        # Test inserting and deleting data from the 'name' table
+        insert_query = '''
+            INSERT INTO name (name_id, primaryName, birthYear, deathYear, primaryProfession, url)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        '''
+        delete_query = 'DELETE FROM name WHERE name_id = %s'
+
+        # Insert 'John Doe' data
+        self.cursor.execute(insert_query, ('1', 'John Doe', 1980, None, 'actor', 'https://example.com/johndoe'))
+        self.conn.commit()
+
+        # Check if 'John Doe' data exists before deletion
+        self.cursor.execute('SELECT * FROM name WHERE name_id = %s', ('1',))
+        row_before_deletion = self.cursor.fetchone()
+        self.assertIsNotNone(row_before_deletion, "Insertion failed, 'John Doe' data doesn't exist")
+
+        # Delete 'John Doe' data
+        self.cursor.execute(delete_query, ('1',))
+        self.conn.commit()
+
+        # Check if 'John Doe' data exists after deletion
+        self.cursor.execute('SELECT * FROM name WHERE name_id = %s', ('1',))
+        row_after_deletion = self.cursor.fetchone()
+        self.assertIsNone(row_after_deletion, "Deletion failed, 'John Doe' data still exists")
+
+use sql connector on this one aswell
+
+ChatGPT
+Certainly! Below is the adjusted test case using the mysql.connector library for both establishing the connection and performing the operations on the database.
+
+python
+Copy code
+import unittest
+import mysql.connector
+
+# Replace these connection details with your actual database connection
+DB_CONFIG = {
+    'host': 'your_host',
+    'user': 'your_username',
+    'password': 'your_password',
+    'database': 'your_database',
+}
+
+class TestDatabase(unittest.TestCase):
+
+    def setUp(self):
+        # Establish a connection to the MySQL database
+        self.conn = mysql.connector.connect(**DB_CONFIG)
+        self.cursor = self.conn.cursor()
+
+        # Create the 'name' table
+        create_table_query = '''
+            CREATE TABLE IF NOT EXISTS name (
+                name_id varchar(100) PRIMARY KEY,
+                primaryName varchar(255),
+                birthYear int,
+                deathYear int,
+                primaryProfession SET('actor','actress',...),  # Add your professions here
+                url varchar(255)
+            )
+        '''
+        self.cursor.execute(create_table_query)
+        self.conn.commit()
+
+    def tearDown(self):
+        # Drop the 'name' table after each test
+        drop_table_query = 'DROP TABLE IF EXISTS name'
+        self.cursor.execute(drop_table_query)
+        self.conn.commit()
+        self.conn.close()
+
+    def test_insert_and_delete_data(self):
+        # Test inserting and deleting data from the 'name' table
+        insert_query = '''
+            INSERT INTO name (name_id, primaryName, birthYear, deathYear, primaryProfession, url)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        '''
+        delete_query = 'DELETE FROM name WHERE name_id = %s'
+
+        # Insert 'John Doe' data
+        self.cursor.execute(insert_query, ('1', 'John Doe', 1980, None, 'actor', 'https://example.com/johndoe'))
+        self.conn.commit()
+
+        # Check if 'John Doe' data exists before deletion
+        self.cursor.execute('SELECT * FROM name WHERE name_id = %s', ('1',))
+        row_before_deletion = self.cursor.fetchone()
+        self.assertIsNotNone(row_before_deletion, "Insertion failed, 'John Doe' data doesn't exist")
+
+        # Delete 'John Doe' data
+        self.cursor.execute(delete_query, ('1',))
+        self.conn.commit()
+
+        # Check if 'John Doe' data exists after deletion
+        self.cursor.execute('SELECT * FROM name WHERE name_id = %s', ('1',))
+        row_after_deletion = self.cursor.fetchone()
+        self.assertIsNone(row_after_deletion, "Deletion failed, 'John Doe' data still exists")
+
+if __name__ == '__main__':
+    unittest.main()
+Ensure to replace the placeholders in DB_CONFIG with your actual MySQL connection details. This script uses mysql.connector to establish a connection, create the name table, insert 'John Doe' data, verify the insertion, delete the 'John Doe' data, and verify the deletion. Adjust it further as needed for your specific use cases.
+User
+create more tests 
+
+ChatGPT
+Certainly! Expanding the test suite to cover additional functionalities and scenarios can provide more comprehensive coverage. Here are a few examples:
+
+Test Case 1: Inserting and querying multiple entries in the 'name' table
+This test inserts multiple entries into the name table and queries to verify their existence.
+
+python
+Copy code
+def test_insert_and_query_multiple_entries(self):
+    # Test inserting and querying multiple entries in the 'name' table
+    insert_query = '''
+        INSERT INTO name (name_id, primaryName, birthYear, deathYear, primaryProfession, url)
+        VALUES (%s, %s, %s, %s, %s, %s)
+    '''
+    # Sample data to insert
+    data = [
+        ('1', 'John Doe', 1980, None, 'actor', 'https://example.com/johndoe'),
+        ('2', 'Jane Smith', 1975, 2020, 'actress', 'https://example.com/janesmith'),
+        # Add more entries here as needed
+    ]
+
+    # Insert multiple entries
+    for entry in data:
+        self.cursor.execute(insert_query, entry)
+    self.conn.commit()
+
+    # Query and check each inserted entry
+    for entry in data:
+        self.cursor.execute('SELECT * FROM name WHERE name_id = %s', (entry[0],))
+        row = self.cursor.fetchone()
+        self.assertIsNotNone(row, f"Insertion failed for entry {entry[0]}, data doesn't exist")
+Test Case 2: Testing deletion of non-existent data
+This test tries to delete data that does not exist and verifies that no error occurs.
+
+python
+Copy code
+def test_delete_non_existent_data(self):
+    # Test deleting non-existent data from the 'name' table
+    delete_query = 'DELETE FROM name WHERE name_id = %s'
+
+    # Attempt to delete a non-existent entry
+    non_existent_id = '1000'
+    self.cursor.execute(delete_query, (non_existent_id,))
+    self.conn.commit()
+
+    # Query the non-existent entry to ensure it's not present
+    self.cursor.execute('SELECT * FROM name WHERE name_id = %s', (non_existent_id,))
+    row = self.cursor.fetchone()
+    self.assertIsNone(row, "Deletion failed for non-existent data, entry still exists")
+You can create more tests to cover scenarios like updating existing data, testing constraints, handling exceptions, or testing different table operations based on your database functionalities and requirements. Always ensure each test case checks for both expected positive outcomes and potential failure scenarios. Adjust the test cases to fit your specific database structure and use cases.
+User
+do you think the database is well tested now ? 
+
+ChatGPT
+The tests provided cover some fundamental scenarios like inserting, querying, and deleting data. However, the completeness of testing often depends on various factors:
+
+Coverage: Consider covering edge cases, constraints, and exceptional scenarios specific to your database schema and application requirements.
+Error Handling: Test how the database handles errors such as constraint violations, incorrect data types, or unique key violations.
+Performance Testing: Evaluate database performance with larger datasets, especially for complex queries or operations.
+Concurrency and Transactions: Test scenarios involving multiple simultaneous accesses or transactions to ensure data integrity.
+Security Testing: Validate that the database handles security measures like access controls, injection attacks, and data encryption properly.
+Integration Testing: If the database interacts with other components or services, perform integration tests to ensure seamless functionality.
+Scalability and Load Testing: Assess how the database handles increased loads and scaling requirements.
+While the provided tests are a good starting point, ensuring thorough testing usually involves a combination of these factors. Strive to cover as many scenarios as possible to build confidence in the database's functionality, reliability, and performance. Iteratively improve tests based on uncovered scenarios or identified issues to enhance the testing suite's effectiveness.

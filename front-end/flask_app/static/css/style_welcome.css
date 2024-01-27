@@ -1,0 +1,150 @@
+.welcome {
+  background: var(--material-theme-sys-light-primary-container, #ffdada);
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.welcome-to-ntuaflix {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.wel-to-ntflx-text {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.welcome-to-ntua-flix-enjoy-a-personalized-movie-experience-login-now-to-make-the-most-out-of-your-visit {
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.welcome-to-ntua-flix-enjoy-a-personalized-movie-experience-login-now-to-make-the-most-out-of-your-visit-span {
+  color: #000000;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.welcome-to-ntua-flix-enjoy-a-personalized-movie-experience-login-now-to-make-the-most-out-of-your-visit-span2 {
+  color: #e10909;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.welcome-to-ntua-flix-enjoy-a-personalized-movie-experience-login-now-to-make-the-most-out-of-your-visit-span3 {
+  color: #af2b3e;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.welcome-to-ntua-flix-enjoy-a-personalized-movie-experience-login-now-to-make-the-most-out-of-your-visit-span4 {
+  color: #e10909;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.welcome-to-ntua-flix-enjoy-a-personalized-movie-experience-login-now-to-make-the-most-out-of-your-visit-span5 {
+  color: #af2b3e;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.welcome-to-ntua-flix-enjoy-a-personalized-movie-experience-login-now-to-make-the-most-out-of-your-visit-span6 {
+  color: #e10909;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.welcome-to-ntua-flix-enjoy-a-personalized-movie-experience-login-now-to-make-the-most-out-of-your-visit-span7 {
+  color: #af2b3e;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.welcome-to-ntua-flix-enjoy-a-personalized-movie-experience-login-now-to-make-the-most-out-of-your-visit-span8 {
+  color: #e10909;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.welcome-to-ntua-flix-enjoy-a-personalized-movie-experience-login-now-to-make-the-most-out-of-your-visit-span9 {
+  color: #af2b3e;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.welcome-to-ntua-flix-enjoy-a-personalized-movie-experience-login-now-to-make-the-most-out-of-your-visit-span10 {
+  color: #e10909;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.welcome-to-ntua-flix-enjoy-a-personalized-movie-experience-login-now-to-make-the-most-out-of-your-visit-span11 {
+  color: #000000;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.login2 {
+  background: var(--material-theme-sys-light-primary, #af2b3e);
+  border-radius: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 133px;
+  height: 56px;
+  position: relative;
+  overflow: hidden;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.label-text2 {
+  color: var(--material-theme-sys-light-on-primary, #ffffff);
+  text-align: center;
+  font-family: var(
+    --material-theme-title-large-font-family,
+    "Roboto-Regular",
+    sans-serif
+  );
+  font-size: var(--material-theme-title-large-font-size, 22px);
+  line-height: var(--material-theme-title-large-line-height, 28px);
+  font-weight: var(--material-theme-title-large-font-weight, 400);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

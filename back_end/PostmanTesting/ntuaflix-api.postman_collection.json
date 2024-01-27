@@ -1,0 +1,523 @@
+{
+	"info": {
+		"_postman_id": "394ddb55-eff1-4f46-ba55-e7adca7f270b",
+		"name": "ntuaflix-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32182604"
+	},
+	"item": [
+		{
+			"name": "GetTitle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.text()).to.be.ok;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true,
+					"user-agent": true,
+					"host": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/title/tt0000929",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"title",
+						"tt0000929"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.text()).to.be.ok;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/name/nm0000019",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"name",
+						"nm0000019"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchTitle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.text()).to.be.ok;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "titlePart",
+							"value": "Mi",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/searchtitle",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"searchtitle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ByGenre",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.text()).to.be.ok;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "qgenre",
+							"value": "Action",
+							"type": "text"
+						},
+						{
+							"key": "minrating",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/bygenre",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"bygenre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.text()).to.be.ok;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "namePart",
+							"value": "Jo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/searchname",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"searchname"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RateMovie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.text()).to.be.ok;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rating",
+							"value": "-1",
+							"type": "text"
+						},
+						{
+							"key": "title_id",
+							"value": "tt0000929",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/ratemovie",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"ratemovie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLikedMovies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.text()).to.be.ok;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/getlikedmovies",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"getlikedmovies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDislikedMovies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.text()).to.be.ok;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/getdislikedmovies",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"getdislikedmovies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTopRatedMovies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.text()).to.be.ok;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/gettopratedmovies",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"gettopratedmovies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChatBot",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.text()).to.be.ok;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Sentence",
+							"value": "Hello",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/chatbot",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"chatbot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MovieRecommender",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.text()).to.be.ok;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/movierecommender_1/Klebolin klebt alles",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"movierecommender_1",
+						"Klebolin klebt alles"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.sendRequest(\"https://ntuaflix-api/title/<string:tt0000929>\", function (err, response) {",
+					"    console.log(response.json());",
+					"});"
+				]
+			}
+		}
+	]
+}

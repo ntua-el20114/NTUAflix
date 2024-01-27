@@ -1,0 +1,18 @@
+{
+    "answers":{
+        "phase": "coding",
+        "action": "database coding",
+        "scope": "database",
+        "prog lang": "vim,SQL,python,shell",
+        "other prog lang": "<fill in>",
+        "tool": "chat gpt 3.x",
+        "other tool": "<fill in>",
+        "tool option": "free",
+        "tool experience": "some",
+        "time allocated (h)": "0.15",
+        "time saved estimated (h)": "2",
+        "quality of ai help": "minor modifications needed",
+        "generic feeling": "needs work",
+        "notes": "<fill in>"
+    }
+}
