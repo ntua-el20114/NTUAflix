@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/vars.css" />
+    <link rel="stylesheet" href="../static/css/style_base.css" />
+    <link rel="stylesheet" href="../static/css/style_global.css" />
+
+
+    <style> a,button,input,select,h1,h2,h3,h4,h5,
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          border: none;
+          text-decoration: none;
+          appearance: none;
+          background: none;
+  
+          -webkit-font-smoothing: antialiased;
+        }
+      </style>
+    <title>{% block title %}NTUAflix{% endblock %}</title>
+    </head>
+    <body style="display: flex; flex-direction: column; overflow: hidden;">
+    <!-- Overlay -->
+    <!-- This is used to dim the entire screen when chatbot sidepanel is opened -->
+    <div id="overlay" onclick="closePanel()"></div>
+
+      <!-- Navigation Bar -->
+      <nav class="navbar">
+          <div class="navbar-layout">
+            <a href="/Catalogue">
+              <div class="logo-image">
+                <img class="ntu-aflix-logo-1" src="../static/images/ntu-aflix-logo-10.png" />
+              </div>
+            </a>
+            <div class="search-bar">
+              <div class="state-layer">
+                <div class="leading-icon">
+                  <div class="container">
+                    <div class="state-layer2">
+                      <svg
+                        class="icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M3 8V6H21V8H3ZM3 13H21V11H3V13ZM3 18H21V16H3V18Z"
+                          fill="#524343"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <input type="text" class="input" placeholder="Find a movie"/>
+                </div>      
+                <div class="trailing-elements">
+                  <div class="_1st-trailing-icon">
+                    <div class="container">
+                      <div class="state-layer2">
+                        <svg
+                          class="icon3"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M14.76 13.27L20.49 19L19 20.49L13.27 14.76C12.2 15.53 10.91 16 9.5 16C5.91 16 3 13.09 3 9.5C3 5.91 5.91 3 9.5 3C13.09 3 16 5.91 16 9.5C16 10.91 15.53 12.2 14.76 13.27ZM9.5 5C7.01 5 5 7.01 5 9.5C5 11.99 7.01 14 9.5 14C11.99 14 14 11.99 14 9.5C14 7.01 11.99 5 9.5 5Z"
+                            fill="#524343"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="/UserProfile">
+              <button class="button">
+                <div class="state-layer3">
+                  <svg
+                    class="icon5"
+                    width="19"
+                    height="18"
+                    viewBox="0 0 19 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.5 1.5C5.36 1.5 2 4.86 2 9C2 13.14 5.36 16.5 9.5 16.5C13.64 16.5 17 13.14 17 9C17 4.86 13.64 1.5 9.5 1.5ZM14.27 12.6225C13.1975 11.3175 10.595 10.875 9.5 10.875C8.405 10.875 5.8025 11.3175 4.73 12.6225C3.965 11.6175 3.5 10.365 3.5 9C3.5 5.6925 6.1925 3 9.5 3C12.8075 3 15.5 5.6925 15.5 9C15.5 10.365 15.035 11.6175 14.27 12.6225ZM6.875 7.125C6.875 5.67 8.045 4.5 9.5 4.5C10.955 4.5 12.125 5.67 12.125 7.125C12.125 8.58 10.955 9.75 9.5 9.75C8.045 9.75 6.875 8.58 6.875 7.125Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <div class="label-text">{{ session['username'] }}</div>
+                </div>
+              </button>
+            </a>
+          </div>
+      </nav>
+
+      <!-- Page Content -->
+      {% block content %}{% endblock %}
+
+      <!-- ChatBot FAB -->
+      <button id="chatbotFab" class="chat-bot-fab">
+          <div class="large-fab">
+            <div class="state-layer4">
+              <svg
+                class="icon7"
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <mask
+                  id="mask0_282_769"
+                  style="mask-type: alpha"
+                  maskUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="36"
+                  height="36"
+                >
+                  <rect width="36" height="36" fill="#D9D9D9" />
+                </mask>
+                <g mask="url(#mask0_282_769)">
+                  <path
+                    d="M6 21.75C4.75 21.75 3.6875 21.3125 2.8125 20.4375C1.9375 19.5625 1.5 18.5 1.5 17.25C1.5 16 1.9375 14.9375 2.8125 14.0625C3.6875 13.1875 4.75 12.75 6 12.75V9.75C6 8.925 6.29375 8.21875 6.88125 7.63125C7.46875 7.04375 8.175 6.75 9 6.75H13.5C13.5 5.5 13.9375 4.4375 14.8125 3.5625C15.6875 2.6875 16.75 2.25 18 2.25C19.25 2.25 20.3125 2.6875 21.1875 3.5625C22.0625 4.4375 22.5 5.5 22.5 6.75H27C27.825 6.75 28.5312 7.04375 29.1188 7.63125C29.7063 8.21875 30 8.925 30 9.75V12.75C31.25 12.75 32.3125 13.1875 33.1875 14.0625C34.0625 14.9375 34.5 16 34.5 17.25C34.5 18.5 34.0625 19.5625 33.1875 20.4375C32.3125 21.3125 31.25 21.75 30 21.75V27.75C30 28.575 29.7063 29.2813 29.1188 29.8688C28.5312 30.4563 27.825 30.75 27 30.75H9C8.175 30.75 7.46875 30.4563 6.88125 29.8688C6.29375 29.2813 6 28.575 6 27.75V21.75ZM13.5 18C14.125 18 14.6562 18.5313 15.0938 18.0938C15.5312 17.6563 15.75 17.125 15.75 16.5C15.75 15.875 15.5312 15.3438 15.0938 14.9063C14.6562 14.4688 14.125 14.25 13.5 14.25C12.875 14.25 12.3438 14.4688 11.9062 14.9063C11.4688 15.3438 11.25 15.875 11.25 16.5C11.25 17.125 11.4688 17.6563 11.9062 18.0938C12.3438 18.5313 12.875 18 13.5 18ZM22.5 18.75C23.125 18.75 23.6562 18.5313 24.0938 18.0938C24.5312 17.6563 24.75 17.125 24.75 16.5C24.75 16.5 24.75 16.5 24 16.5C23.25 16.5 23.125 16.5 22.5 16.5C21.875 16.5 21.75 16.5 20.9062 16.5C20.25 16.5 20.25 16.5 20.25 16.5C20.25 17.125 20.4688 17.6563 20.9062 18.0938C21.3438 18.5313 21.875 18.75 22.5 18.75ZM12 22.5C12 23.7426 13.0074 24.75 14.25 24.75H21C22.6569 24.75 24 23.4069 24 21.75V21L18 21.75L12 22.5ZM9 27.75H27V9.75H9V27.75Z"
+                    fill="#AF2B3E"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </button>
+
+      <!-- ChatBot Side Panel -->
+      <div id="chatbotPanel" class="side-panel">
+        <div class="chat-bubbles">
+          <div class="chat-bubble">
+            <div class="bubble">
+              <div class="overline-text">You</div>
+              <div class="text">Is Mike good looking?</div>
+            </div>
+          </div>
+          <div class="chat-bubble2">
+            <div class="bubble2">
+              <div class="overline-text">NTUAflix chatbot</div>
+              <div class="text">Yes.</div>
+            </div>
+          </div>
+          <div class="chat-bubble">
+            <div class="bubble">
+              <div class="overline-text">You</div>
+              <div class="text">But how much exactly? What is your estimation?</div>
+            </div>
+          </div>
+          <div class="chat-bubble2">
+            <div class="bubble2">
+              <div class="overline-text">NTUAflix chatbot</div>
+              <div class="text">Oh, he is quite handsome</div>
+            </div>
+          </div>
+          <div class="chat-bubble">
+            <div class="bubble">
+              <div class="overline-text">You</div>
+              <div class="text">Awsome! Can you tell me his phone number?</div>
+            </div>
+          </div>
+          <div class="chat-bubble2">
+            <div class="bubble2">
+              <div class="overline-text">NTUAflix chatbot</div>
+              <div class="text">
+                I’m sorry, but I can’t provide this information. Under the new GDPR, I
+                am not allowed to share personal data without permission.
+              </div>
+            </div>
+          </div>
+          <div class="chat-bubble">
+            <div class="bubble">
+              <div class="overline-text">You</div>
+              <div class="text">
+                Damn it.
+                <br />
+                Ok, I don’t have much to say, but I want the container to overflow so
+                I’ll talk some more lalalala
+                <br />
+                I’m talking to make the container overflow so that I can showcase
+                vertical scrolling lalalala.
+              </div>
+            </div>
+          </div>
+          <div class="chat-bubble2">
+            <div class="bubble2">
+              <div class="overline-text">NTUAflix chatbot</div>
+              <div class="text">
+                Ok, I’ll add some text too:
+                <br />
+                lalalala this is some text, this is some more text and even more and
+                even more and even more and a little more and done.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-input">
+          <form class="input-box">
+            <input type="text" class="input" placeholder="Ask a question"/>
+            <button>
+              <svg
+                class="send-input"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <mask
+                  id="mask0_123_1993"
+                  style="mask-type: alpha"
+                  maskUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="24"
+                  height="24"
+                >
+                  <rect width="24" height="24" fill="#D9D9D9" />
+                </mask>
+                <g mask="url(#mask0_123_1993)">
+                  <path
+                    d="M16.175 13L4 13L4 11L16.175 11L10.575 5.4L12 4L20 12L12 20L10.575 18.6L16.175 13Z"
+                    fill="#1C1B1F"
+                  />
+                </g>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+      <script src="{{ url_for('static', filename='js/chat_panel.js') }}"></script>
+    </body>
+</html>
