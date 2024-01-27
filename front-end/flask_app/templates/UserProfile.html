@@ -1,0 +1,341 @@
+<link rel="stylesheet" href="../static/css/style_userprofile.css" />
+{% extends "base.html" %}
+{% block title %} NTUAflix - Login {% endblock %}
+{% block content %}
+<div class="user-profile">
+  <div class="frame-12">
+    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="icons-account-circle-filled-24-px" viewBox="0 0 16 16">
+      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+    </svg>
+    <div class="frame-10">
+      <div class="frame-9">
+        <div class="username">{{ session['username'] }}</div>
+      </div>
+      <ul class="user-info-list">
+        <li class="user-info-list-item">
+          <div class="user-info-title">first name:</div>
+          <div class="user-info">{{ session['first_name'] }}</div>
+        </li>
+        <li class="user-info-list-item">
+          <div class="user-info-title">last name:</div>
+          <div class="user-info">{{ session['last_name'] }}</div>
+        </li>
+        <li class="user-info-list-item">
+          <div class="user-info-title">email:</div>
+          <div class="user-info">{{ session['email'] }}</div>
+        </li>
+        <li class="user-info-list-item">
+          <div class="user-info-title">birth date:</div>
+          <div class="user-info">{{ session['birthdate'][:16] }}</div>
+        </li>
+      </ul>
+    </div>
+    <form action="/UserProfile" method="POST">
+      <button class="button" type="submit">
+        <div class="label-text">Log out</div>
+      </button>
+    </form>
+  </div>
+  <div class="frame-13">
+    <div class="movies-section-restricted">
+      <div class="movies-section">Likes ♥</div>
+      <div class="movies-section2">
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="movies-section-restricted">
+      <div class="movies-section">Dislikes ❌</div>
+      <div class="movies-section2">
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+        <div class="movie-thumbnail">
+          <div class="thumbnail">
+            <img class="thumbnail2" src="../static/images/thumbnail1.png" />
+          </div>
+          <div class="movie-or-tv-series-title-goes-here">
+            Movie or TV Series title goes here
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

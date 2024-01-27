@@ -1,0 +1,192 @@
+.log-in,
+.log-in * {
+  box-sizing: border-box;
+}
+
+.log-in {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.state-layer3 {
+  padding: 10px 24px 10px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+}
+
+.log-in-to-ntua-flix {
+  text-align: center;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  position: relative;
+  width: 100%;
+}
+.log-in-to-ntua-flix-span {
+  color: #000000;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+.log-in-to-ntua-flix-span2 {
+  color: #e10909;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+.log-in-to-ntua-flix-span3 {
+  color: #af2b3e;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+.log-in-to-ntua-flix-span4 {
+  color: #e10909;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+.log-in-to-ntua-flix-span5 {
+  color: #af2b3e;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+.log-in-to-ntua-flix-span6 {
+  color: #e10909;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+.log-in-to-ntua-flix-span7 {
+  color: #af2b3e;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+.log-in-to-ntua-flix-span8 {
+  color: #e10909;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+.log-in-to-ntua-flix-span9 {
+  color: #af2b3e;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+.log-in-to-ntua-flix-span10 {
+  color: #e10909;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+.frame-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.wf-input-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  width: 320px;
+  height: 72px;
+  position: relative;
+}
+.label-stack {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.label {
+  color: var(--wf-base-800, #2d3648);
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+  position: relative;
+  flex: 1;
+}
+.text-input {
+  color: black;
+  background: var(--wf-base-white, #ffffff);
+  border-radius: 6px;
+  border-style: solid;
+  border-color: var(--wf-base-400, #cbd2e0);
+  border-width: 2px;
+  padding: 12px;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 48px;
+  position: relative;
+}
+
+.login2 {
+  background: var(--material-theme-sys-light-primary, #af2b3e);
+  border-radius: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 133px;
+  height: 56px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.label-text2 {
+  color: var(--material-theme-sys-light-on-primary, #ffffff);
+  text-align: center;
+  font-family: var(
+    --material-theme-title-large-font-family,
+    "Roboto-Regular",
+    sans-serif
+  );
+  font-size: var(--material-theme-title-large-font-size, 22px);
+  line-height: var(--material-theme-title-large-line-height, 28px);
+  font-weight: var(--material-theme-title-large-font-weight, 400);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
