@@ -3,6 +3,7 @@ from functools import wraps
 from flask_restful import Resource
 import json, jwt, datetime
 from back_end import app
+from flask_cors import cross_origin
 
 from back_end import db
 
@@ -185,6 +186,7 @@ def getNameObject(nameID):
     return return_dict
 
 class UserRole(Resource):
+    @cross_origin()
     @login_required
     def get(self, user):  
         response_data = {'user_role': user["user_role"]}
@@ -226,6 +228,7 @@ class UserLogin(Resource):
         return {"message": "You should make a POST request to login"}, 400
 
 class UserLogout(Resource):
+    @cross_origin()
     @login_required
     def post(self, user):
         if 'X-OBSERVATORY-AUTH' in request.headers:
@@ -236,6 +239,7 @@ class UserLogout(Resource):
             return {'message': 'User is already logged out'}, 200
 
 class GetTitle(Resource):
+    @cross_origin()
     @login_required
     def get(self, user, titleID):
         return_dict = getTitleObject(titleID)
@@ -247,6 +251,7 @@ class GetTitle(Resource):
         return response
 
 class SearchTitle(Resource):
+    @cross_origin()
     @login_required
     def get(self, user):
         data = request.form.get("titlePart")
@@ -273,6 +278,7 @@ class SearchTitle(Resource):
         return response
 
 class ByGenre(Resource):
+    @cross_origin()
     @login_required
     def get(self, user):
         genre = request.form.get('qgenre')
@@ -337,6 +343,7 @@ class ByGenre(Resource):
         return response
 
 class GetName(Resource):
+    @cross_origin()
     @login_required
     def get(self, user, nameID):
         return_dict = getNameObject(nameID)
@@ -348,6 +355,7 @@ class GetName(Resource):
         return response
 
 class SearchName(Resource):
+    @cross_origin()
     @login_required
     def get(self, user):
         data = request.form.get("namePart")
@@ -376,6 +384,7 @@ class SearchName(Resource):
 #################################################################################################################
 
 class RateMovie(Resource):
+    @cross_origin()
     @login_required
     def post(self,user):
         rating = request.form.get("rating")
@@ -423,6 +432,7 @@ class RateMovie(Resource):
 
 
 class GetLikedMovies(Resource):
+    @cross_origin()
     @login_required
     def get(self, user):
         user_id = user.get("id")
@@ -445,6 +455,7 @@ class GetLikedMovies(Resource):
             return {'error': f'{str(e)}'}, 400
 
 class GetDislikedMovies(Resource):
+    @cross_origin()
     @login_required
     def get(self,user):
         user_id = user.get("id")
@@ -467,6 +478,7 @@ class GetDislikedMovies(Resource):
             return {'error': f'{str(e)}'}, 400
 
 class GetTopRatedMovies(Resource):
+    @cross_origin()
     @login_required
     def get(self):
 
@@ -488,6 +500,7 @@ class GetTopRatedMovies(Resource):
             return {'error': f'{str(e)}'}, 400
 
 class GetAppUserData(Resource):
+    @cross_origin()
     @login_required
     def get(self,user):
         user_id = user.get("id")

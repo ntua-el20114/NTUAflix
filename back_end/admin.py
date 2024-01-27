@@ -3,8 +3,10 @@ from flask_restful import Resource
 import secrets,  json
 from back_end import db, app
 from .auth import login_required, admin_required
+from flask_cors import cross_origin
 
 class HealthCheck(Resource):
+    @cross_origin()
     @login_required
     @admin_required
     def get(self, user):
@@ -19,7 +21,9 @@ class HealthCheck(Resource):
 
         except Exception as e:
             return {"status": "failed", "dataconnection": f"Database connection failed. Error: {str(e)}"}, 500
+
 class TitleBasics(Resource):
+    @cross_origin()
     @login_required
     @admin_required
     # Read TSV data from the specified file
@@ -50,6 +54,7 @@ class TitleBasics(Resource):
         return {"status":"Titles added"}, 200
 
 class TitleAkas(Resource):
+    @cross_origin()
     @login_required
     @admin_required
     def post(self, user):
@@ -81,6 +86,7 @@ class TitleAkas(Resource):
         return {"status":"Akas added"}, 200
 
 class NameBasics(Resource):
+    @cross_origin()
     @login_required
     @admin_required
     def post(self, user):
@@ -112,6 +118,7 @@ class NameBasics(Resource):
         return {"status":"Names added"}, 200
 
 class TitleCrew(Resource):
+    @cross_origin()
     @login_required
     @admin_required
     def post(self, user):
@@ -143,6 +150,7 @@ class TitleCrew(Resource):
         return {"status":"Crews added"}, 200
 
 class TitleEpisode(Resource):
+    @cross_origin()
     @login_required
     @admin_required
     def post(self, user):
@@ -174,6 +182,7 @@ class TitleEpisode(Resource):
         return {"status":"Episodes added"}, 200
 
 class TitlePrincipal(Resource):
+    @cross_origin()
     @login_required
     @admin_required
     def post(self, user):
@@ -205,6 +214,7 @@ class TitlePrincipal(Resource):
         return {"status":"Principals added"}, 200
 
 class TitleRatings(Resource):
+    @cross_origin()
     @login_required
     @admin_required
     def post(self, user):
@@ -235,12 +245,14 @@ class TitleRatings(Resource):
         return {"status":"Ratings added"}, 200
     
 class ResetAll(Resource):
+    @cross_origin()
     @login_required
     @admin_required
     def post(self, user):
         return {"message": "Reset All"}
 
 class UserMod(Resource):
+    @cross_origin()
     @login_required
     @admin_required
     def post(self, user, username, password):
@@ -273,6 +285,7 @@ class UserMod(Resource):
         return {'message': f'User {username} created successfully'}, 201
 
 class UserInfo(Resource):
+    @cross_origin()
     @login_required
     @admin_required
     def get(self, user, username):

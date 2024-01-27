@@ -13,8 +13,10 @@ from .model import NeuralNet
 from .nltk_utils import tokenize,bag_of_words
 from .extractor import extract_actors, extract_genres
 from .query import print_movie
+from flask_cors import cross_origin,CORS
 
 class ChatBot(Resource):
+    @cross_origin()
     @login_required
     def get(self, user):
         script_dir = os.path.dirname(__file__)
@@ -88,7 +90,7 @@ class ChatBot(Resource):
                 string += item + " "
             string = string.rstrip()
             query = f"""
-                    SELECT title.*
+                    SELECT distinct title.*
                     FROM title
                     JOIN principals ON title.title_id = principals.title_id
                     JOIN name ON name.name_id = principals.name_id

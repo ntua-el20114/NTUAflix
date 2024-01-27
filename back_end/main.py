@@ -6,7 +6,10 @@ from .admin import *
 from .ChatBot.chatbot_endpoint import *
 from .MovieRecommender_1.mr1_endpoint import *
 from .MovieRecommender_2.mr2_endpoint import *
+from flask_cors import CORS
+
 api = Api(app, prefix='/ntuaflix_api')
+CORS(app, resources={r"/ntuaflix_api/*": {"origins": "http://127.0.0.1:9876"}})
 
 #User Access Endpoints
 api.add_resource(UserLogin, '/login') #takes body/form parameters username,password

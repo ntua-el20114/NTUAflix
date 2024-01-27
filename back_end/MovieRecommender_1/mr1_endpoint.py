@@ -6,10 +6,12 @@ import secrets
 from back_end import db
 from ..auth import login_required, admin_required, getTitleObject
 import json
+from flask_cors import cross_origin
 
 from back_end.MovieRecommender_1.recommend import recommend
 
 class Movie_Recommender_1(Resource):
+    @cross_origin()
     @login_required
     def get(self, user, title):
         return_list = recommend(title)
