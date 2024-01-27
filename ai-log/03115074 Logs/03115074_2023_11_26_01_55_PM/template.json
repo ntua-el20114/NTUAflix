@@ -1,0 +1,19 @@
+{
+    "answers": {
+        "phase": "coding",
+        "action": "architectural decision",
+        "scope": "api",
+        "action experience": "none",
+        "prog lang": "python",
+        "other prog lang": " ",
+        "tool": "chat gpt 3.x",
+        "other tool": " ",
+        "tool option": "free",
+        "tool experience": "some",
+        "time allocated (h)": "0.15",
+        "time saved estimate (h)": "2", 
+        "quality of ai help": "major modifications needed",
+        "generic feeling": "needs work",
+        "notes": " "
+    }
+}
