@@ -1,0 +1,19 @@
+{
+    "answers": {
+        "phase": "requirements gathering",
+        "action":   "requirements (functional)",
+        "scope": "uml component",
+        "action experience": "none",
+        "prog lang": "n/a",
+        "other prog lang": "<fill in>",
+        "tool": "chat gpt 3.x",
+        "other tool": "<fill in>",
+        "tool option": "free",
+        "tool experience": "enough",
+        "time allocated (h)": "0.1",
+        "time saved estimate (h)": "0.5", 
+        "quality of ai help": "major modifications needed",
+        "generic feeling": "needs work",
+        "notes": "<fill in>"
+    }
+}
