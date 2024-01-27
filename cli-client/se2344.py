@@ -298,7 +298,156 @@ def logout(token):
     else:
         print(f'Error: {response.status_code}')
 
+##################################################################################################
+###################################### FOR ADMIN ################################################# 
+##################################################################################################
 
+def adduser(token, username, password):
+
+    url = f'http://127.0.0.1:9876/ntuaflix_api/admin/usermod/{username}/{password}'
+    response = requests.post(url, headers={'X-OBSERVATORY-AUTH': token})
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200 or response.status_code == 201:
+        print(response.text)
+    else:
+        print(f'Error: {response.status_code}')
+
+
+def healthcheck(token):
+
+    url = 'http://127.0.0.1:9876/ntuaflix_api/admin/healthcheck'
+    response = requests.get(url, headers={'X-OBSERVATORY-AUTH': token})
+    print(response.text)
+
+def newtitles(token, file_path):
+    with open(file_path, 'r') as file:
+        tsv_data = file.read()
+    data = {'tsv_data': tsv_data}
+
+    url = 'http://127.0.0.1:9876/ntuaflix_api/admin/upload/titlebasics'
+    response = requests.post(url, headers = {'X-OBSERVATORY-AUTH': token}, data=data)
+
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        print(response.text)
+    else:
+        print(f'Error: {response.status_code}')
+
+def newakas(token, file_path):
+    with open(file_path, 'r') as file:
+        tsv_data = file.read()
+    data = {'tsv_data': tsv_data}
+
+    url = 'http://127.0.0.1:9876/ntuaflix_api/admin/upload/titleakas'
+    response = requests.post(url, headers = {'X-OBSERVATORY-AUTH': token},data=data)
+    
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        print(response.text)
+    else:
+        print(f'Error: {response.status_code}')
+
+def newnames(token, file_path):
+    with open(file_path, 'r') as file:
+        tsv_data = file.read()
+    data = {'tsv_data': tsv_data}
+    
+    url = 'http://127.0.0.1:9876/ntuaflix_api/admin/upload/namebasics'
+    response = requests.post(url, headers = {'X-OBSERVATORY-AUTH': token},data=data)
+    
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        print(response.text)
+    else:
+        print(f'Error: {response.status_code}')
+
+def newcrew(token, file_path):
+    with open(file_path, 'r') as file:
+        tsv_data = file.read()
+    data = {'tsv_data': tsv_data}
+    
+    url = 'http://127.0.0.1:9876/ntuaflix_api/admin/upload/titlecrew'
+    response = requests.post(url, headers = {'X-OBSERVATORY-AUTH': token},data=data)
+
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        print(response.text)
+    else:
+        print(f'Error: {response.status_code}')
+
+def newepisode(token, file_path):
+    with open(file_path, 'r') as file:
+        tsv_data = file.read()
+    data = {'tsv_data': tsv_data}
+
+    url = 'http://127.0.0.1:9876/ntuaflix_api/admin/upload/titleepisode'
+    response = requests.post(url, headers = {'X-OBSERVATORY-AUTH': token},data=data)
+
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        print(response.text)
+    else:
+        print(f'Error: {response.status_code}')
+
+def newprincipals(token, file_path):
+    with open(file_path, 'r') as file:
+        tsv_data = file.read()
+    data = {'tsv_data': tsv_data}
+
+    url = 'http://127.0.0.1:9876/ntuaflix_api/admin/upload/titleprincipals'
+    response = requests.post(url, headers = {'X-OBSERVATORY-AUTH': token},data=data)
+
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        print(response.text)
+    else:
+        print(f'Error: {response.status_code}')
+
+def newratings(token, file_path):
+    with open(file_path, 'r') as file:
+        tsv_data = file.read()
+    data = {'tsv_data': tsv_data}
+
+    url = 'http://127.0.0.1:9876/ntuaflix_api/admin/upload/titleratings'
+    response = requests.post(url, headers = {'X-OBSERVATORY-AUTH': token},data=data)
+    #print(response.text)
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        print(response.text)
+    else:
+        print(f'Error: {response.status_code}')
+
+def resetall(token):
+
+    url = 'http://127.0.0.1:9876/ntuaflix_api/admin/resetall'
+    response = requests.post(url, headers={'X-OBSERVATORY-AUTH': token})
+    
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        result_dict = response.json()
+        print()
+        # Print each key-value pair on a new line
+        for key, value in result_dict.items():
+            print(f'{key}: {value}')
+        print()
+    else:
+        print(f'Error: {response.status_code}') 
+
+def user(token, username):
+
+    url = f'http://127.0.0.1:9876/ntuaflix_api/admin/users/{username}'
+    response = requests.get(url, headers={'X-OBSERVATORY-AUTH': token})
+    
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        result_dict = response.json()
+        print()
+        # Print each key-value pair on a new line
+        for key, value in result_dict.items():
+            print(f'{key}: {value}')
+        print()
+    else:
+        print(f'Error: {response.status_code}')   
 
 
 def main():
