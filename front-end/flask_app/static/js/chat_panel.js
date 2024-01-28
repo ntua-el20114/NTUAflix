@@ -12,38 +12,65 @@ function closePanel() {
     document.body.style.overflow = 'auto';
 }
 
-// Add an event listener to the form submission
 document.getElementById('inputBox').addEventListener('submit', function(event) {
     // Prevent the form from being submitted normally
     event.preventDefault();
-
+    
     // Get the prompt from the form input
     const prompt = document.getElementById('textInput').value;
-    console.log("Prompt: " + prompt);
+    
+    // Create a new chat bubble for the user's input
+    const userBubble = document.createElement('div');
+    userBubble.className = 'chat-bubble';
+    
+    const userBubbleContent = `
+    <div class="bubble">
+    <div class="overline-text">You</div>
+    <div class="text">${prompt}</div>
+    </div>
+    `;
+    userBubble.innerHTML = userBubbleContent;
+    
+    // Append the user's chat bubble to the chat container
+    document.getElementById('chatContainer').appendChild(userBubble);
 
+    // Clear the text input
+    document.getElementById('textInput').value = '';
+    
     const url = new URL('http://127.0.0.1:9876/ntuaflix_api/chatbot');
     url.searchParams.append('Sentence', prompt);
-    // const data = {'Sentence': prompt};
 
-    console.log("Sending request");
     fetch(url, {
         method: 'GET',
         headers: {
             'X-OBSERVATORY-AUTH': userToken, //This is defined in base.html
         },
-        // body: JSON.stringify(data)
     })
     .then(response => {
         if (!response.ok) {
-            console.log("Response not ok");
             throw new Error(`Error: ${response.status}`);
         }
         console.log("Response ok");
         return response.json();
     })
     .then(data => {
-        console.log("Response: " + data)
         const result = data.Response || [];
+
+        // Create a new chat bubble for the server's response
+        const serverBubble = document.createElement('div');
+        serverBubble.className = 'chat-bubble2';
+
+        const serverBubbleContent = `
+            <div class="bubble2">
+                <div class="overline-text">NTUAflix chatbot</div>
+                <div class="text">${result}</div>
+            </div>
+        `;
+        serverBubble.innerHTML = serverBubbleContent;
+
+        // Append the server's chat bubble to the chat container
+        document.getElementById('chatContainer').appendChild(serverBubble);
+
         console.log(result);
     })
     .catch(error => {
