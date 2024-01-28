@@ -51,7 +51,7 @@ Ensure you have the following installed:
 
 3. Install required packages:
    ```bash
-   pip install -r requirements.txt
+   cat requirements.txt | xargs -n 1 pip install --no-deps --ignore-installed || true
     ```
 ### Running the App
 
