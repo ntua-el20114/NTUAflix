@@ -24,6 +24,7 @@
     <title>{% block title %}NTUAflix{% endblock %}</title>
     </head>
     <body style="display: flex; flex-direction: column; overflow: hidden;">
+    
     <!-- Overlay -->
     <!-- This is used to dim the entire screen when chatbot sidepanel is opened -->
     <div id="overlay" onclick="closePanel()"></div>
@@ -153,6 +154,13 @@
       <!-- ChatBot Side Panel -->
       <div id="chatbotPanel" class="side-panel">
         <div class="chat-bubbles">
+          <div class="chat-bubble2">
+            <div class="bubble2">
+              <div class="overline-text">NTUAflix chatbot</div>
+              <div class="text">Hello {{ session['first_name']}}, my name is Tyrone and I am the official NTUAflix chatbot! 
+                I' ll be happy to answer your movie-related questions!</div>
+            </div>
+          </div>
           <div class="chat-bubble">
             <div class="bubble">
               <div class="overline-text">You</div>
@@ -219,8 +227,8 @@
           </div>
         </div>
         <div class="text-input">
-          <form class="input-box">
-            <input type="text" class="input" placeholder="Ask a question"/>
+          <form class="input-box" id="inputBox">
+            <input type="text" class="input" id="textInput" placeholder="Ask a question"/>
             <button>
               <svg
                 class="send-input"
@@ -253,5 +261,6 @@
         </div>
       </div>
       <script src="{{ url_for('static', filename='js/chat_panel.js') }}"></script>
+      <script>var userToken = "{{ session['user_token'] }}";</script>
     </body>
 </html>
