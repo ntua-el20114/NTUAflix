@@ -22,7 +22,21 @@ class ChatBot(Resource):
         script_dir = os.path.dirname(__file__)
         intents_path = os.path.join(script_dir, 'intents.json')
         data_path = os.path.join(script_dir, 'data.pth')
-        sentence = request.form.get('Sentence')
+        try:
+            sentence1 = request.form.get('Sentence')
+        except:
+            print()
+        try:
+            sentence2 = request.args.get('Sentence')
+        except:
+            print()
+
+        if sentence1:
+            sentence = sentence1
+        if sentence2:
+            sentence = sentence2
+
+
         actors = extract_actors(sentence)
         genres = extract_genres(sentence)
         FILE = data_path
