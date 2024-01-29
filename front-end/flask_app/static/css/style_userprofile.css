@@ -81,8 +81,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-shrink: 0;
-  width: 970px;
-  height: 470px;
+  width: 100%;
   position: relative;
 }
 
