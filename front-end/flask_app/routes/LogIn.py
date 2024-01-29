@@ -16,16 +16,18 @@ def login_submit():
         flash("Please provide a username and a password", "error")
         return redirect("/Login")
 
+    print(f"Logging in as {username} with password {password}")
     url = 'http://127.0.0.1:9876/ntuaflix_api/login'
     data = {'username': username, 'password': password}
     response = requests.post(url, data=data)
-    session['user_token'] = response.json()['token']
 
-    if response.status_code == 200:
-        url='http://127.0.0.1:9876/ntuaflix_api/getappuserdata'
-        usr_data = requests.get(url, headers={ 'X-OBSERVATORY-AUTH': session['user_token']})
+    if response.status_code == 200:        
+        # Store user token in session
+        session['user_token'] = response.json()['token']
 
         # Store user data in session
+        url='http://127.0.0.1:9876/ntuaflix_api/getappuserdata'
+        usr_data = requests.get(url, headers={ 'X-OBSERVATORY-AUTH': session['user_token']})
         session['username'] = username
         session['first_name'] = usr_data.json()['first_name']
         session['last_name'] = usr_data.json()['last_name']

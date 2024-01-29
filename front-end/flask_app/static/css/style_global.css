@@ -31,13 +31,17 @@
 .flashes {
     padding: 20px;
     margin-bottom: 20px;
-    border: 1px solid;
+    /* border: 1px solid; */
     border-radius: 4px;
     list-style-type: none;
     font-family: "Roboto-Regular", sans-serif;
     min-width: 40%;
     align-items: center;
     gap: 10px;
+    z-index: 2;
+    position: fixed;
+    top:var(--navbar-height);
+    align-self: flex-end;
   }
   
   .info {
