@@ -29,21 +29,46 @@
     <!-- This is used to dim the entire screen when chatbot sidepanel is opened -->
     <div id="overlay" onclick="closePanel()"></div>
 
-      <!-- Navigation Bar -->
-      <nav class="navbar">
-          <div class="navbar-layout">
-            <a href="/Catalogue">
-              <div class="logo-image">
-                <img class="ntu-aflix-logo-1" src="../static/images/ntu-aflix-logo-10.png" />
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-layout">
+          <a href="/Catalogue">
+            <div class="logo-image">
+              <img class="ntu-aflix-logo-1" src="../static/images/ntu-aflix-logo-10.png" />
+            </div>
+          </a>
+          <div class="search-bar">
+            <div class="state-layer">
+              <div class="leading-icon">
+                <div class="container">
+                  <div class="state-layer2">
+                    <svg
+                      class="icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M3 8V6H21V8H3ZM3 13H21V11H3V13ZM3 18H21V16H3V18Z"
+                        fill="#524343"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
-            </a>
-            <div class="search-bar">
-              <div class="state-layer">
-                <div class="leading-icon">
+              <div class="content">
+                <input type="text" class="input" placeholder="Find a movie"/>
+              </div>      
+              <div class="trailing-elements">
+                <div class="_1st-trailing-icon">
                   <div class="container">
                     <div class="state-layer2">
                       <svg
-                        class="icon"
+                        class="icon3"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
@@ -53,66 +78,52 @@
                         <path
                           fill-rule="evenodd"
                           clip-rule="evenodd"
-                          d="M3 8V6H21V8H3ZM3 13H21V11H3V13ZM3 18H21V16H3V18Z"
+                          d="M14.76 13.27L20.49 19L19 20.49L13.27 14.76C12.2 15.53 10.91 16 9.5 16C5.91 16 3 13.09 3 9.5C3 5.91 5.91 3 9.5 3C13.09 3 16 5.91 16 9.5C16 10.91 15.53 12.2 14.76 13.27ZM9.5 5C7.01 5 5 7.01 5 9.5C5 11.99 7.01 14 9.5 14C11.99 14 14 11.99 14 9.5C14 7.01 11.99 5 9.5 5Z"
                           fill="#524343"
                         />
                       </svg>
                     </div>
                   </div>
                 </div>
-                <div class="content">
-                  <input type="text" class="input" placeholder="Find a movie"/>
-                </div>      
-                <div class="trailing-elements">
-                  <div class="_1st-trailing-icon">
-                    <div class="container">
-                      <div class="state-layer2">
-                        <svg
-                          class="icon3"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M14.76 13.27L20.49 19L19 20.49L13.27 14.76C12.2 15.53 10.91 16 9.5 16C5.91 16 3 13.09 3 9.5C3 5.91 5.91 3 9.5 3C13.09 3 16 5.91 16 9.5C16 10.91 15.53 12.2 14.76 13.27ZM9.5 5C7.01 5 5 7.01 5 9.5C5 11.99 7.01 14 9.5 14C11.99 14 14 11.99 14 9.5C14 7.01 11.99 5 9.5 5Z"
-                            fill="#524343"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
-            <a href="/UserProfile">
-              <button class="button">
-                <div class="state-layer3">
-                  <svg
-                    class="icon5"
-                    width="19"
-                    height="18"
-                    viewBox="0 0 19 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M9.5 1.5C5.36 1.5 2 4.86 2 9C2 13.14 5.36 16.5 9.5 16.5C13.64 16.5 17 13.14 17 9C17 4.86 13.64 1.5 9.5 1.5ZM14.27 12.6225C13.1975 11.3175 10.595 10.875 9.5 10.875C8.405 10.875 5.8025 11.3175 4.73 12.6225C3.965 11.6175 3.5 10.365 3.5 9C3.5 5.6925 6.1925 3 9.5 3C12.8075 3 15.5 5.6925 15.5 9C15.5 10.365 15.035 11.6175 14.27 12.6225ZM6.875 7.125C6.875 5.67 8.045 4.5 9.5 4.5C10.955 4.5 12.125 5.67 12.125 7.125C12.125 8.58 10.955 9.75 9.5 9.75C8.045 9.75 6.875 8.58 6.875 7.125Z"
-                      fill="white"
-                    />
-                  </svg>
-                  <div class="label-text">{{ session['username'] }}</div>
-                </div>
-              </button>
-            </a>
           </div>
-      </nav>
+          <a href="/UserProfile">
+            <button class="button">
+              <div class="state-layer3">
+                <svg
+                  class="icon5"
+                  width="19"
+                  height="18"
+                  viewBox="0 0 19 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.5 1.5C5.36 1.5 2 4.86 2 9C2 13.14 5.36 16.5 9.5 16.5C13.64 16.5 17 13.14 17 9C17 4.86 13.64 1.5 9.5 1.5ZM14.27 12.6225C13.1975 11.3175 10.595 10.875 9.5 10.875C8.405 10.875 5.8025 11.3175 4.73 12.6225C3.965 11.6175 3.5 10.365 3.5 9C3.5 5.6925 6.1925 3 9.5 3C12.8075 3 15.5 5.6925 15.5 9C15.5 10.365 15.035 11.6175 14.27 12.6225ZM6.875 7.125C6.875 5.67 8.045 4.5 9.5 4.5C10.955 4.5 12.125 5.67 12.125 7.125C12.125 8.58 10.955 9.75 9.5 9.75C8.045 9.75 6.875 8.58 6.875 7.125Z"
+                    fill="white"
+                  />
+                </svg>
+                <div class="label-text">{{ session['username'] }}</div>
+              </div>
+            </button>
+          </a>
+        </div>
+    </nav>
 
+    <!-- Display flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+      
       <!-- Page Content -->
       {% block content %}{% endblock %}
 
