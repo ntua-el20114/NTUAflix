@@ -33,7 +33,7 @@ CREATE TABLE title (
 CREATE TABLE app_user (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_role ENUM('administrator', 'standard_user', 'developer') NOT NULL,
-    token varchar(100) UNIQUE,
+    token varchar(255) UNIQUE,
     first_name varchar(255) NOT NULL,
     last_name varchar(255) NOT NULL,
     birthdate date,

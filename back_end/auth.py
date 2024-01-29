@@ -4,6 +4,8 @@ from flask_restful import Resource
 import json, jwt, datetime
 from back_end import app
 from flask_cors import cross_origin
+import random
+import os
 
 from back_end import db
 
@@ -12,6 +14,7 @@ def login_user(username, password):
     cur = db.get_db().cursor()
     cur.execute("SELECT * FROM app_user WHERE username=%s AND password=%s", (username, password))
     user = cur.fetchone()
+    print(user)
     cur.close()
 
     if user:
@@ -21,6 +24,7 @@ def login_user(username, password):
         payload = {
             'exp': expiration_time,
             'iat': datetime.datetime.utcnow(),
+            'jti': os.urandom(16).hex(),
             'sub': user["id"]
         }
         # Now 'token' contains the JWT that can be sent to the client
@@ -28,7 +32,7 @@ def login_user(username, password):
         #Update the user's token into the database with the newly encoded one
         token = jwt.encode(payload, app.config["SECRET_KEY"], algorithm="HS256")
         cur = db.get_db().cursor()
-        cur.execute("UPDATE app_user SET token=%s WHERE id=%s", [token[:32], user["id"]])
+        cur.execute("UPDATE app_user SET token=%s WHERE id=%s", [token, user["id"]])
         db.get_db().commit()
         cur.close()
         return token
