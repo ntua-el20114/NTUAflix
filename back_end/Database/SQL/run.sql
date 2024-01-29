@@ -15,3 +15,4 @@ source ./population/done/episode_insertions.sql;
 source ./population/done/imdb_ratings_insertions.sql;
 source ./population/done/name_titles_insertions.sql;
 source ./population/done/crew_insertions.sql;
+source ./population/done/user_preferences_insertions.sql;
