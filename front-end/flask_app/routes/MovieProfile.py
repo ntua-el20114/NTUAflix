@@ -4,27 +4,45 @@ import json
 
 movie_profile = Blueprint('MovieProfile', __name__)
 
-@movie_profile.route('/MovieProfile/<string:titleID>')
+@movie_profile.route('/MovieProfile/<string:titleID>', methods=['GET'])
 def show(titleID):
+    # Determine whether user has liked movie
+    liked = False
+    url = 'http://127.0.0.1:9876/ntuaflix_api/getlikedmovies'
+    response = requests.get(url, headers = {'X-OBSERVATORY-AUTH': session['user_token']})
+    if response.status_code == 200:
+        for movie in response.json()["result"]:
+            if movie["titleID"] == titleID:
+                liked = True
+                break
+    
+    # Determine whether user has disliked movie
+    disliked = False
+    url = 'http://127.0.0.1:9876/ntuaflix_api/getdislikedmovies'
+    response = requests.get(url, headers = {'X-OBSERVATORY-AUTH': session['user_token']})
+    if response.status_code == 200:
+        for movie in response.json()["result"]:
+            if movie["titleID"] == titleID:
+                disliked = True
+                break
+
     # Get Movie Info
     url = 'http://127.0.0.1:9876/ntuaflix_api/title/' + titleID
     response = requests.get(url, headers = {'X-OBSERVATORY-AUTH': session['user_token']})
     if response.status_code == 200:
-        print("Successfully got movie info")
-        print(json.dumps(response.json(), indent=4))
+        # print(json.dumps(response.json(), indent=4))
         movie_info = response.json()
         # Organize movie principals
         movie_info['principals'] = {}
-        movie_info['principals']['Directors'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'director']
-        movie_info['principals']['Producers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'producer']
-        movie_info['principals']['Actors'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'actor' or principal['category'] == 'actress']
-        movie_info['principals']['Cinematographers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'cinematographer']
-        movie_info['principals']['Editors'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'editor']
-        movie_info['principals']['Composers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'composer']
-        movie_info['principals']['Production Designers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'production_designer']
-        movie_info['principals']['Writers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'writer']
-        print(movie_info)
+        movie_info['principals']['Directors'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'director'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Producers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'producer'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Actors'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'actor' or principal['category'] == 'actress'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Cinematographers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'cinematographer'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Editors'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'editor'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Composers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'composer'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Production Designers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'production_designer'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Writers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'writer'] if response.json()['principals']!='None' else []
     else:
         flash("There was an error getting movie info", "error")
         movie_info = None
-    return render_template('MovieProfile.html', movie=movie_info)
+    return render_template('MovieProfile.html', movie=movie_info, liked=liked, disliked=disliked)

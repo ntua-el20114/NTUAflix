@@ -44,6 +44,7 @@
   font-family: "Roboto-SemiBold", sans-serif;
   font-size: 48px;
   font-weight: 600;
+  max-width: 70%;
   position: relative;
 }
 .group-1 {
@@ -53,7 +54,7 @@
   position: relative;
   overflow: visible;
 }
-._7-9-10 {
+.rating {
   color: var(--material-theme-sys-light-primary, #af2b3e);
   text-align: left;
   font-family: "Roboto-Regular", sans-serif;

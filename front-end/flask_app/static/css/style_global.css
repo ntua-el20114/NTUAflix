@@ -79,3 +79,15 @@
     width: 100%;
     text-align: center;
   }
+
+  /* Icons */
+.material-symbols-outlined {
+  color: var(--material-theme-sys-light-primary, #af2b3e);
+  cursor: pointer;
+  transition: all 0.1s ease 0.05s;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
