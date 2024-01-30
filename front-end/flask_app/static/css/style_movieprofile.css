@@ -11,11 +11,12 @@
   justify-content: flex-start;
   width: 100vw;
   height: 100vh;
+  padding-top: var(--navbar-height);
   position: relative;
   overflow: hidden;
 }
 .movie-profile-container {
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px 30px 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -37,12 +38,11 @@
   position: relative;
   overflow: hidden;
 }
-.shrek {
+.title {
   color: #000000;
   text-align: left;
   font-family: "Roboto-SemiBold", sans-serif;
   font-size: 48px;
-  line-height: 48px;
   font-weight: 600;
   position: relative;
 }
@@ -73,25 +73,7 @@
   position: relative;
   overflow: hidden;
 }
-.start-year {
-  color: #000000;
-  text-align: left;
-  font-family: "Roboto-Regular", sans-serif;
-  font-size: 16px;
-  line-height: 25px;
-  font-weight: 400;
-  position: relative;
-}
-.runtime-minuets {
-  color: #000000;
-  text-align: left;
-  font-family: "Roboto-Regular", sans-serif;
-  font-size: 16px;
-  line-height: 25px;
-  font-weight: 400;
-  position: relative;
-}
-.genres {
+.text {
   color: #000000;
   text-align: left;
   font-family: "Roboto-Regular", sans-serif;
@@ -101,32 +83,32 @@
   position: relative;
 }
 .thumbnail-large {
-  border-radius: 20px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: flex-start;
-  justify-content: center;
+  display: inline-block;
   flex-shrink: 0;
-  width: 722px;
-  height: 469px;
+  min-width: 30%;
+  max-width: 50%;
+  min-height: 60vh;
+  max-height: 80vh;
   position: relative;
   overflow: hidden;
 }
-.shrek-1 {
-  align-self: stretch;
-  flex: 1;
+
+.thumbnail-img {
+  width: 100%;
+  height: 100%;
   position: relative;
-  object-fit: cover;
+  object-fit: contain;
 }
-.movie-desctription {
-  color: #000000;
-  text-align: left;
-  font-family: "Inter-Regular", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  position: relative;
+.row-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: stretch;
+  justify-content: flex-start;
   align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
 .movie-info {
   padding: 5px 0px 5px 0px;
@@ -140,15 +122,7 @@
   position: relative;
   overflow: hidden;
 }
-.directors {
-  color: #000000;
-  text-align: left;
-  font-family: "Roboto-SemiBold", sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  position: relative;
-}
-.actors {
+.text-bold {
   color: #000000;
   text-align: left;
   font-family: "Roboto-SemiBold", sans-serif;

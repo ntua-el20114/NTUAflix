@@ -11,7 +11,8 @@ def show():
     if response.status_code == 200:
         print("Successfully got liked movies")
         # Keep only essensial data
-        liked_movies = [{"title": movie["originalTitle"], "thumbnail": movie["titlePoster"]} for movie in response.json()["result"]]
+        liked_movies = [{"title": movie["originalTitle"], "thumbnail": movie["titlePoster"], "id": movie["titleID"]} 
+                        for movie in response.json()["result"]]
         print(liked_movies)
     else:
         flash("There was an error getting liked movies", "error")
@@ -21,7 +22,8 @@ def show():
     response = requests.get(url, headers = {'X-OBSERVATORY-AUTH': session['user_token']})
     if response.status_code == 200:
         print("Successfully got disliked movies")
-        disliked_movies = [{"title": movie["originalTitle"], "thumbnail": movie["titlePoster"]} for movie in response.json()["result"]]
+        disliked_movies = [{"title": movie["originalTitle"], "thumbnail": movie["titlePoster"], "id": movie["titleID"]}
+                           for movie in response.json()["result"]]
         print(disliked_movies)
     else:
         flash("There was an error getting disliked movies", "error")

@@ -5,7 +5,7 @@
 <div class="movie-profile">
   <div class="movie-profile-container">
     <div class="movie-header">
-      <div class="shrek">Shrek</div>
+      <div class="title">{{movie['originalTitle'] if movie and movie['originalTitle']!='Null' else 'No title'}}</div>
       <svg
         class="group-1"
         width="57"
@@ -49,28 +49,43 @@
           />
         </g>
       </svg>
-      <div class="_7-9-10">7.9/10</div>
+      <div class="_7-9-10">{{ movie['rating'][0]['avRating'] if movie and movie['rating'][0] else '??' }}/10</div>
     </div>
     <div class="movie-header-info">
-      <div class="start-year">startYear</div>
-      <div class="runtime-minuets">runtimeMinuets</div>
-      <div class="genres">genres</div>
+      <div class="text">
+        {{ movie['startYear'] if movie and movie['startYear']!='Null' else Null}}
+        {{ " - "+movie['endYear'] if movie and movie['endYear']!='Null' else Null }}
+      </div>
+      <div class="text">
+        {% if movie['genres'] %}
+          {% for genre in movie['genres'] %}
+            {% if genre != movie['genres'][-1] %}
+              {{ genre }},
+            {% else %}
+              {{ genre }}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
     </div>
-    <div class="thumbnail-large">
-      <img class="shrek-1" src="../static/images/thumbnail1.png" />
-    </div>
-    <div class="movie-desctription">
-      Movie description movie description movie description movie description
-      movie description movie description movie description movie description
-      movie description movie description movie description movie description
-      movie description movie description movie description movie description
-      movie description movie description movie description movie description
-      movie description movie description movie description movie description
-      movie description movie description
-    </div>
-    <div class="movie-info">
-      <div class="directors">Directors:</div>
-      <div class="actors">Actors</div>
+    <div class="row-container">
+      <div class="thumbnail-large">
+        <img class="thumbnail-img" src={{movie['titlePoster'] if movie else none}} onerror="this.onerror=null; this.src='../static/images/no-image-found.png';"/>
+      </div>
+      <div class="movie-info">
+        {% if movie['principals'] %}
+          {% for principal in movie['principals'] %}
+            {% if movie['principals'][principal] %}
+              <div class="text-bold"><br>{{principal}}</div>
+              <div class="text">
+                {% for name in movie['principals'][principal] %}
+                  {{name}}<br>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>

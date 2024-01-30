@@ -1,0 +1,13 @@
+HIGH PRIORITY
+>Implement search bar
+    -What happens with 'bygenre' etc?
+>Implement movie profile page
+>Implement catalogue page
+    -Top Rated
+    -Recommender1 & Recomender2
+
+POSSIBLE TWEAKS
+>Explain functionality of chatbot. Present movie recommendations in a better way
+>Remove movies with null title and null poster from the database
+>Use "US" aka title for movies when possible
+>Movie Profile: show number of votes
