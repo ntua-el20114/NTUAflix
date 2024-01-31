@@ -399,36 +399,89 @@ class RateMovie(Resource):
             return {'error': 'Missing rating in the request body'}, 400
 
         if not title_id:
-            return {'error': 'Missing title_id in the request body'}, 400
+            return {'error': 'issing title_id in the request body'}, 400
 
+        # Check if the user has already rated the movie
         cur = db.get_db().cursor()
         cur.execute(f"SELECT * FROM user_rating WHERE user_id = {user_id} and title_id = '{title_id}'")
         result = cur.fetchone()
         cur.close()
+        print(result)
+        print(rating)
+        print(title_id)
+        print(user_id)
+
+        # If the user has already rated the movie, update the rating
         if result:
-            try:
+            # If the user unlikes or undislikes
+            if rating == '0':
+                cur = db.get_db().cursor()
+                cur.execute(f"DELETE FROM user_rating WHERE user_id = {user_id} and title_id = '{title_id}';")
+                db.get_db().commit()
+                cur.close()
+
+                cur = db.get_db().cursor()
+                cur.execute(f"DELETE FROM user_preferences WHERE user_id = {user_id} and title_id = '{title_id}';")
+                cur = db.get_db().cursor()
+                db.get_db().commit()
+                cur.close()
+
+                return {"status":"Rating deleted"}, 200
+
+            # If the user likes
+            if rating == '1':
+                print("In rating = 1 after having already a rating")
+                cur = db.get_db().cursor()
+                cur.execute(f"INSERT INTO user_preferences (user_id, title_id) VALUES ({user_id}, '{title_id}');")
+                db.get_db().commit()
+                cur.close()
+
                 cur = db.get_db().cursor()
                 cur.execute(f"UPDATE user_rating SET rating = {rating} WHERE user_id = {user_id} and title_id = '{title_id}'")
                 db.get_db().commit()
                 cur.close()
-            except Exception as e:
-                return {'error here': f'{str(e)}'}, 400
 
+                return {"status":"Rating added"}, 200
+
+            if rating == '-1':
+                print("In rating = -1 after having already a rating")
+                cur = db.get_db().cursor()
+                cur.execute(f"UPDATE user_rating SET rating = {rating} WHERE user_id = {user_id} and title_id = '{title_id}'")
+                db.get_db().commit()
+                cur.close()
+
+                cur = db.get_db().cursor()
+                cur.execute(f"DELETE FROM user_preferences WHERE user_id = {user_id} and title_id = '{title_id}';")
+                db.get_db().commit()
+                cur.close()
+
+                return {"status":"Rating added"}, 200
+
+
+        # If the user hasn't rated yet
         else:
             try:
                 cur = db.get_db().cursor()
                 cur.execute(f"INSERT INTO user_rating (user_id, title_id, rating) VALUES ({user_id}, '{title_id}', {rating});")
                 db.get_db().commit()
                 cur.close()
-            except Exception as e:
-                return {'error here': f'{str(e)}'}, 400
 
-            try:
-                if rating == 1:
+                if rating == '1':
                     cur = db.get_db().cursor()
                     cur.execute(f"INSERT INTO user_preferences (user_id, title_id) VALUES ({user_id}, '{title_id}');")
                     db.get_db().commit()
                     cur.close()
+
+                    return {"status":"Rating added"}, 200
+
+                else:
+                    cur = db.get_db().cursor()
+                    cur.execute(f"DELETE FROM user_preferences WHERE user_id = {user_id} and title_id = '{title_id}';")
+                    db.get_db().commit()
+                    cur.close()
+
+                    return {"status":"Rating added"}, 200
+
             except Exception as e:
                 return {'error here': f'{str(e)}'}, 400
 
