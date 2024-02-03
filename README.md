@@ -4,10 +4,9 @@
 
 # Ntuaflix
 Welcome to Ntuaflix, a comprehensive platform for movie enthusiasts! Dive into a vast collection of movies,
-explore detailed profiles of actors, express your preferences through likes or dislikes,
-engage in conversations with a specialized movie chatbot, and get personalized movie recommendations.
-Ntuaflix combines a robust backend with a user-friendly interface, ensuring an enjoyable and interactive
-movie browsing experience.
+express your preferences through likes or dislikes,engage in conversations with a specialized movie chatbot,
+and get personalized movie recommendations. Ntuaflix combines a robust backend with a user-friendly interface,
+ensuring an enjoyable and interactive movie browsing experience.
 
 ## Features
 
