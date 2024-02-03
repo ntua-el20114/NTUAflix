@@ -72,5 +72,50 @@ Check out our [YouTube demo](https://www.youtube.com/) to see Ntuaflix in action
 ## Collaborators
 
 <!-- readme: collaborators -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/ntua-el15074">
+            <img src="https://avatars.githubusercontent.com/u/108369084?v=4" width="100;" alt="ntua-el15074"/>
+            <br />
+            <sub><b>Peter Avgerinos</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ntua-el19202">
+            <img src="https://avatars.githubusercontent.com/u/115347141?v=4" width="100;" alt="ntua-el19202"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ntua-el20403">
+            <img src="https://avatars.githubusercontent.com/u/115495345?v=4" width="100;" alt="ntua-el20403"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ntua-el19204">
+            <img src="https://avatars.githubusercontent.com/u/116622443?v=4" width="100;" alt="ntua-el19204"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ntua-el20014">
+            <img src="https://avatars.githubusercontent.com/u/146037460?v=4" width="100;" alt="ntua-el20014"/>
+            <br />
+            <sub><b>Nick Oikonomou</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ntua-el20114">
+            <img src="https://avatars.githubusercontent.com/u/147823510?v=4" width="100;" alt="ntua-el20114"/>
+            <br />
+            <sub><b>Null</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: collaborators -end -->
 
