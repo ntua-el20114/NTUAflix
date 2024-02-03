@@ -71,21 +71,5 @@ Check out our [YouTube demo](https://www.youtube.com/) to see Ntuaflix in action
 
 # Collaborators
 
-<a href="https://github.com/terezann">
-  <img src="https://avatars.githubusercontent.com/u/100274863?v=4" width="50" height="50" style="border-radius:50%">
-</a>
-<a href="https://github.com/ntua-el19204">
-  <img src="https://avatars.githubusercontent.com/u/116622443?v=4" width="50" height="50" style="border-radius:50%">
-</a>
-<a href="https://github.com/ntua-el19202">
-  <img src="https://avatars.githubusercontent.com/u/115347141?v=4" width="50" height="50" style="border-radius:50%">
-</a>
-<a href="https://github.com/ntua-el20114">
-  <img src="https://avatars.githubusercontent.com/u/147823510?v=4" width="50" height="50" style="border-radius:50%">
-</a>
-<a href="https://github.com/ntua-el20014">
-  <img src="https://avatars.githubusercontent.com/u/146037460?v=4" width="50" height="50" style="border-radius:50%">
-</a>
-<a href="https://github.com/ntua-el15074">
-  <img src="https://avatars.githubusercontent.com/u/108369084?v=4" width="50" height="50" style="border-radius:50%">
-</a>
+<!-- readme: collaborators -start -->
+<!-- readme: collaborators -end -->
