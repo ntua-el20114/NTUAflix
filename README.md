@@ -69,3 +69,8 @@ Ensure you have the following installed:
 
 Check out our [YouTube demo](https://www.youtube.com/) to see Ntuaflix in action!
 
+## Collaborators
+
+<!-- readme: collaborators -start -->
+<!-- readme: collaborators -end -->
+
