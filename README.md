@@ -75,13 +75,6 @@ Check out our [YouTube demo](https://www.youtube.com/) to see Ntuaflix in action
 <table>
 <tr>
     <td align="center">
-        <a href="https://github.com/ntua-el15074">
-            <img src="https://avatars.githubusercontent.com/u/108369084?v=4" width="100;" alt="ntua-el15074"/>
-            <br />
-            <sub><b>Peter Avgerinos</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/ntua-el19202">
             <img src="https://avatars.githubusercontent.com/u/115347141?v=4" width="100;" alt="ntua-el19202"/>
             <br />
@@ -93,6 +86,13 @@ Check out our [YouTube demo](https://www.youtube.com/) to see Ntuaflix in action
             <img src="https://avatars.githubusercontent.com/u/115495345?v=4" width="100;" alt="ntua-el20403"/>
             <br />
             <sub><b>Null</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/ntua-el15074">
+            <img src="https://avatars.githubusercontent.com/u/108369084?v=4" width="100;" alt="ntua-el15074"/>
+            <br />
+            <sub><b>Peter Avgerinos</b></sub>
         </a>
     </td>
     <td align="center">
