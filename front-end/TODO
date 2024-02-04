@@ -1,6 +1,6 @@
 HIGH PRIORITY
 >Implement search bar
-    -Add 'bygenre' panel -> returns results (bygenre) and top 3 results (recommender 2)
+    -Add 'bygenre' panel -> returns results (bygenre) and suggested (recommender 2)
 >Implement 'recommended' section in catalogue page
     -(Recommender1 for each liked movie)
 
@@ -9,3 +9,6 @@ POSSIBLE TWEAKS
 >Remove movies with null title and null poster from the database
 >Use "US" aka title for movies when possible
 >Movie Profile: show number of votes
+>Add close button to notification flashes
+    -flash "click on name to see profile" when first loading movie profile
+>Add "similar movies" button in movie profile page

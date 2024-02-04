@@ -66,8 +66,8 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 15px 20px;
-  row-gap: 6vh;
+  /* padding: 15px 20px; */
+  /* row-gap: 6vh; */
   column-gap: 1vw;
   align-items: flex-start;
   justify-content: flex-start;
@@ -80,8 +80,9 @@
 .movie-thumbnail {
   flex-shrink: 0;
   width: 15vw;
-  height: 20vh;
+  /* height: 20vh; */
   position: relative;
+  margin-bottom: 20px;
 }
 
 .thumbnail {
@@ -93,7 +94,7 @@
   justify-content: center;
   width: 15vw;
   height: 20vh;
-  position: absolute;
+  position: relative;
   left: 0px;
   top: 0px;
   overflow: hidden;
@@ -111,14 +112,13 @@
   text-align: left;
   font-family: "Roboto-Regular", sans-serif;
   font-size: 2vh;
-  line-height: 3vh;
+  line-height: 2.5vh;
   font-weight: 400;
-  position: absolute;
+  position: relative;
   right: 3.79%;
   left: 2.84%;
   width: 93.36%;
   bottom: 0%;
   top: 100.0%;
   height: 20.94%;
-  margin-bottom: 45px;
 }
