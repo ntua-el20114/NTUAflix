@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="../static/css/style_movieprofile.css" />
+{% extends "base.html" %}
+{% block title %} NTUAflix - {{person['name'] if person and person['name']!='Null' else 'No title'}} {% endblock %}
+{% block content %}
+<div class="movie-profile">
+  <div class="movie-profile-container">
+    <div class="movie-header">
+      <div class='title'>{{person['name']}}</div>
+    </div>
+    <div class="movie-header-info">
+        <div class="text">
+            {{ person['birthYr'] if person and person['birthYr']!='Null' else Null}}
+            {{ " - "+person['deathYr'] if person and person['deathYr']!='Null' else Null }}
+        </div>
+        <div class="text">
+            {% if person and person['profession'] %}
+            {% for profession in person['profession'] %}
+                {% if profession != person['profession'][-1] %}
+                {{ profession }},
+                {% else %}
+                {{ profession }}
+                {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row-container">
+      <div class="thumbnail-large">
+        <img class="thumbnail-img" src={{person['namePoster'] if person else none}} onerror="this.onerror=null; this.src='../static/images/no-portrait-found.png';"/>
+      </div>
+      <div class="movie-info">
+        {% if person['nameTitles'] %}
+            <div class="text-bold"><br>Associated Titles</div>
+            {% for title in person['nameTitles'] %}
+                <div class="'text"><a class="a" href="/MovieProfile/{{title['title_id']}}">{{title['name']}}</a> ({{title['category']}})</div>
+                <br>
+            {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

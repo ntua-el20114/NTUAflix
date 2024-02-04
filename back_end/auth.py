@@ -537,8 +537,7 @@ class GetDislikedMovies(Resource):
 class GetTopRatedMovies(Resource):
     @cross_origin()
     @login_required
-    def get(self):
-
+    def get(self, user):
         query = f"SELECT * FROM imdb_rating ORDER BY averageRating DESC LIMIT 30;"
 
         try:

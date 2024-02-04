@@ -34,14 +34,14 @@ def show(titleID):
         movie_info = response.json()
         # Organize movie principals
         movie_info['principals'] = {}
-        movie_info['principals']['Directors'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'director'] if response.json()['principals']!='None' else []
-        movie_info['principals']['Producers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'producer'] if response.json()['principals']!='None' else []
-        movie_info['principals']['Actors'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'actor' or principal['category'] == 'actress'] if response.json()['principals']!='None' else []
-        movie_info['principals']['Cinematographers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'cinematographer'] if response.json()['principals']!='None' else []
-        movie_info['principals']['Editors'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'editor'] if response.json()['principals']!='None' else []
-        movie_info['principals']['Composers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'composer'] if response.json()['principals']!='None' else []
-        movie_info['principals']['Production Designers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'production_designer'] if response.json()['principals']!='None' else []
-        movie_info['principals']['Writers'] = [principal['name'] for principal in response.json()['principals'] if principal['category'] == 'writer'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Directors'] = [{'id': principal['nameID'], 'name': principal['name']} for principal in response.json()['principals'] if principal['category'] == 'director'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Producers'] = [{'id': principal['nameID'], 'name': principal['name']} for principal in response.json()['principals'] if principal['category'] == 'producer'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Actors'] = [{'id': principal['nameID'], 'name': principal['name']} for principal in response.json()['principals'] if principal['category'] == 'actor' or principal['category'] == 'actress'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Cinematographers'] = [{'id': principal['nameID'], 'name': principal['name']} for principal in response.json()['principals'] if principal['category'] == 'cinematographer'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Editors'] = [{'id': principal['nameID'], 'name': principal['name']} for principal in response.json()['principals'] if principal['category'] == 'editor'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Composers'] = [{'id': principal['nameID'], 'name': principal['name']} for principal in response.json()['principals'] if principal['category'] == 'composer'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Production Designers'] = [{'id': principal['nameID'], 'name': principal['name']} for principal in response.json()['principals'] if principal['category'] == 'production_designer'] if response.json()['principals']!='None' else []
+        movie_info['principals']['Writers'] = [{'id': principal['nameID'], 'name': principal['name']} for principal in response.json()['principals'] if principal['category'] == 'writer'] if response.json()['principals']!='None' else []
     else:
         flash("There was an error getting movie info", "error")
         movie_info = None

@@ -1,10 +1,8 @@
 HIGH PRIORITY
 >Implement search bar
-    -What happens with 'bygenre' etc?
->Implement movie profile page
->Implement catalogue page
-    -Top Rated
-    -Recommender1 & Recomender2
+    -Add 'bygenre' panel -> returns results (bygenre) and top 3 results (recommender 2)
+>Implement 'recommended' section in catalogue page
+    -(Recommender1 for each liked movie)
 
 POSSIBLE TWEAKS
 >Explain functionality of chatbot. Present movie recommendations in a better way

@@ -46,11 +46,10 @@
           {% for principal in movie['principals'] %}
             {% if movie['principals'][principal] %}
               <div class="text-bold"><br>{{principal}}</div>
-              <div class="text">
-                {% for name in movie['principals'][principal] %}
-                  {{name}}<br>
+                {% for person in movie['principals'][principal] %}
+                  <a class="a" href="/PersonProfile/{{person['id']}}">{{person['name']}}</a>
+                  <br>
                 {% endfor %}
-              </div>
             {% endif %}
           {% endfor %}
         {% endif %}

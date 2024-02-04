@@ -18,7 +18,7 @@
 }
 
 .catalogue-container {
-  padding: 25px 10px 10px 10px;
+  padding: 25px 10px 30px 10px;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@
   justify-content: flex-start;
   align-self: stretch;
   flex-shrink: 0;
-  height: 680px;
+  /* height: 680px; */
   position: relative;
 }
 
