@@ -6,6 +6,10 @@ movie_profile = Blueprint('MovieProfile', __name__)
 
 @movie_profile.route('/MovieProfile/<string:titleID>', methods=['GET'])
 def show(titleID):
+    if session["movie_profile_first_visit"]:
+        flash("Hint: click on a person's name to view their profile", "info")
+        session["movie_profile_first_visit"] = False
+
     # Determine whether user has liked movie
     liked = False
     url = 'http://127.0.0.1:9876/ntuaflix_api/getlikedmovies'

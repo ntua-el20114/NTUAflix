@@ -119,7 +119,12 @@
       {% if messages %}
         <ul class=flashes>
         {% for category, message in messages %}
-          <li class="{{ category }}">{{ message }}</li>
+          <li class="{{ category }}" id="flash{{loop.index}}">
+            {{ message }}
+            <span class="flash-icon material-symbols-outlined" id="flashClose{{loop.index}}">
+              close
+            </span>
+          </li>
         {% endfor %}
         </ul>
       {% endif %}
@@ -209,6 +214,7 @@
         </div>
       </div>
       <script src="{{ url_for('static', filename='js/chat_panel.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/utilities.js') }}"></script>
       <script>var userToken = "{{ session['user_token'] }}";</script>
     </body>
 </html>

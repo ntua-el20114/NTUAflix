@@ -33,6 +33,10 @@ def login_submit():
         session['last_name'] = usr_data.json()['last_name']
         session['email'] = usr_data.json()['email']
         session['birthdate'] = usr_data.json()['birthdate']
+
+        # More initializations
+        session['movie_profile_first_visit'] = True
+
         return redirect("/Catalogue")
 
     else:

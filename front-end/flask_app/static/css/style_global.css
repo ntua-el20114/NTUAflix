@@ -27,6 +27,18 @@
   justify-content: center;
 }
 
+/* Icons */
+.material-symbols-outlined {
+  color: var(--material-theme-sys-light-primary, #af2b3e);
+  cursor: pointer;
+  transition: all 0.1s ease 0.05s;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
 /* Flash messages */
 .flashes {
     padding: 20px;
@@ -44,16 +56,22 @@
     align-self: flex-end;
   }
   
+  .info, .error, .warning {
+    border-radius: 5px;
+    padding: 10px 40px 10px 10px;
+    margin: 5px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+  }
+
   .info {
     color: #31708f;
     background-color: #d9edf7;
     border: 1px solid;
     border-color: #31708f;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px;
-    width: 100%;
-    text-align: center;
   }
   
   .error {
@@ -61,11 +79,6 @@
     background-color: #f2dede;
     border: 1px solid;
     border-color: #a94442;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px;
-    width: 100%;
-    text-align: center;
   }
   
   .warning {
@@ -73,21 +86,10 @@
     background-color: #fcf8e3;
     border: 1px solid;
     border-color: #8a6d3b;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px;
-    width: 100%;
-    text-align: center;
   }
 
-  /* Icons */
-.material-symbols-outlined {
-  color: var(--material-theme-sys-light-primary, #af2b3e);
-  cursor: pointer;
-  transition: all 0.1s ease 0.05s;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
+  .flash-icon{
+    color: inherit;
+    position: absolute;
+    right: 30px;
+  }
