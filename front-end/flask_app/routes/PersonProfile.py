@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, flash, session
+from flask import Blueprint, render_template, flash, session, redirect
 import requests
 import json
 
@@ -6,6 +6,10 @@ person_profile = Blueprint('PersonProfile', __name__)
 
 @person_profile.route('/PersonProfile/<string:nameID>', methods=['GET'])
 def show(nameID):
+    # If not logged in, redirect to welcome page
+    if 'user_token' not in session:
+        return redirect('/')
+
     # Get person info
     url = 'http://127.0.0.1:9876/ntuaflix_api/name/' + nameID
     response = requests.get(url, headers = {'X-OBSERVATORY-AUTH': session['user_token']})

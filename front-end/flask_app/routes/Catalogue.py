@@ -1,10 +1,14 @@
-from flask import Blueprint, render_template, session, flash
+from flask import Blueprint, render_template, session, flash, redirect
 import requests
 
 catalogue = Blueprint('Catalogue', __name__)
 
 @catalogue.route('/Catalogue', methods=['GET'])
 def show():
+    # If not logged in, redirect to welcome page
+    if 'user_token' not in session:
+        return redirect('/')
+
     # Get liked movies
     recommended = []
     url = 'http://127.0.0.1:9876/ntuaflix_api/getlikedmovies'

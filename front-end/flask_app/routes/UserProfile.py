@@ -5,6 +5,10 @@ user_profile = Blueprint('UserProfile', __name__)
 
 @user_profile.route('/UserProfile', methods=['GET'])
 def show():
+    # If not logged in, redirect to welcome page
+    if 'user_token' not in session:
+        return redirect('/')
+
     # Get Liked Movies
     url = 'http://127.0.0.1:9876/ntuaflix_api/getlikedmovies'
     response = requests.get(url, headers = {'X-OBSERVATORY-AUTH': session['user_token']})

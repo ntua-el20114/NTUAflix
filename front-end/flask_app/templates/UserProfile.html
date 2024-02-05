@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../static/css/style_userprofile.css" />
+<link rel="stylesheet" href="../static/css/style_global.css" />
 {% extends "base.html" %}
 {% block title %} NTUAflix - {{session['username']}}{% endblock %}
 {% block content %}
@@ -43,8 +44,8 @@
       <div class="movies-section">Likes ❤️</div>
       <div class="movies-section2">
         {% for movie in liked_movies %}
-        <a href="/MovieProfile/{{movie['id']}}">
-          <div class="movie-thumbnail">
+        <div class="movie-thumbnail">
+          <a href="/MovieProfile/{{movie['id']}}">
             <div class="thumbnail">
               <img class="thumbnail2" src={{movie['thumbnail']}} onerror="this.onerror=null; this.src='../static/images/no-image-found.png';"/>
             </div>
@@ -55,8 +56,8 @@
                 {{movie['title']}}
               {% endif %}
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
         {% endfor %}
       </div>
     </div>
@@ -66,8 +67,8 @@
       <div class="movies-section">Dislikes ❌</div>
       <div class="movies-section2">
         {% for movie in disliked_movies %}
-        <a href="/MovieProfile/{{movie['id']}}">
-          <div class="movie-thumbnail">
+        <div class="movie-thumbnail">
+          <a href="/MovieProfile/{{movie['id']}}">
             <div class="thumbnail">
               <img class="thumbnail2" src={{movie['thumbnail']}} onerror="this.onerror=null; this.src='../static/images/no-image-found.png';"/>
             </div>
@@ -78,8 +79,8 @@
                 {{movie['title']}}
               {% endif %}
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
         {% endfor %}
       </div>
     </div>

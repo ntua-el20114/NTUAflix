@@ -54,7 +54,11 @@ document.getElementById('inputBox').addEventListener('submit', function(event) {
         return response.json();
     })
     .then(data => {
-        const result = data.Response || [];
+        var result = data.Response || [];
+
+        // Make the result message a little more human-readable
+        result = result.replace(/{/g, '<br>');
+        result = result.replace(/}/g, '');
 
         // Create a new chat bubble for the server's response
         const serverBubble = document.createElement('div');
@@ -70,6 +74,10 @@ document.getElementById('inputBox').addEventListener('submit', function(event) {
 
         // Append the server's chat bubble to the chat container
         document.getElementById('chatContainer').appendChild(serverBubble);
+        
+        // Scroll to the bottom of the chat container
+        var div = document.getElementById('chatContainer');
+        div.scrollTop = div.scrollHeight - div.clientHeight;
 
         console.log(result);
     })

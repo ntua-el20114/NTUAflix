@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, flash, session
+from flask import Blueprint, render_template, flash, session, redirect
 import requests
 import json
 
@@ -6,6 +6,10 @@ movie_profile = Blueprint('MovieProfile', __name__)
 
 @movie_profile.route('/MovieProfile/<string:titleID>', methods=['GET'])
 def show(titleID):
+    # If not logged in, redirect to welcome page
+    if 'user_token' not in session:
+        return redirect('/')
+
     if session["movie_profile_first_visit"]:
         flash("Hint: click on a person's name to view their profile", "info")
         session["movie_profile_first_visit"] = False

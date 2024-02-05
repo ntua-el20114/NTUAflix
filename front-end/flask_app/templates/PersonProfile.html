@@ -32,7 +32,10 @@
         {% if person['nameTitles'] %}
             <div class="text-bold"><br>Associated Titles</div>
             {% for title in person['nameTitles'] %}
-                <div class="'text"><a class="a" href="/MovieProfile/{{title['title_id']}}">{{title['name']}}</a> ({{title['category']}})</div>
+                <div class="text">
+                  <a class="a" href="/MovieProfile/{{title['title_id']}}">{{title['name']}}</a>
+                   ({{title['category']}})
+                </div>
                 <br>
             {% endfor %}
         {% endif %}

@@ -72,9 +72,10 @@
   position: relative;
   overflow-x: hidden;
   overflow-y: scroll;
+  padding-top: 40px;
 }
 
-.movies-section-restricted {
+/* .movies-section-restricted {
   display: flex;
   flex-direction: column;
   gap: 0px;
@@ -83,9 +84,9 @@
   flex-shrink: 0;
   width: 100%;
   position: relative;
-}
+} */
 
-.movies-section {
+/* .movies-section {
   color: #000000;
   text-align: left;
   font-family: "Roboto-Medium", sans-serif;
@@ -158,7 +159,7 @@
   bottom: 0%;
   top: 79.06%;
   height: 20.94%;
-}
+} */
 
 .user-info-list{
   display: flex;
