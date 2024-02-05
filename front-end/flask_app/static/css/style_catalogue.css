@@ -31,15 +31,3 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
-
-.movies-section-restricted {
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  align-self: stretch;
-  flex-shrink: 0;
-  /* height: 680px; */
-  position: relative;
-}

@@ -16,10 +16,8 @@ def show():
     if response.status_code == 200:
         too_long = False
         # Get recommendations based on each movie
-        print("Successfully got liked movies")
         for movie in response.json()["result"]:
             if too_long: break
-            print("\nSIMILAR TO: ", movie["originalTitle"])
             url = f'http://127.0.0.1:9876/ntuaflix_api/movierecommender_1/{movie["originalTitle"]}'
             response = requests.get(url, headers = {'X-OBSERVATORY-AUTH': session['user_token']})
             try:
@@ -31,7 +29,6 @@ def show():
                         if rec['id'] == title['titleID']:
                             exists = True
                             break
-                    print(title['originalTitle'])
                     if not exists: recommended.append({"title": title["originalTitle"], "thumbnail": title["titlePoster"], "id": title["titleID"]})
                     
                     # If recommendations list gets too long, keep only the best rec for each movie

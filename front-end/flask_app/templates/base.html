@@ -39,7 +39,7 @@
             </div>
           </a>
           <div class="search-bar">
-            <div class="state-layer">
+            <form class="state-layer" id="searchForm">
               <div class="leading-icon">
                 <div class="container">
                   <div class="state-layer2">
@@ -62,12 +62,12 @@
                 </div>
               </div>
               <div class="content">
-                <input type="text" class="input" placeholder="Find a movie"/>
+                <input id="searchInput" name="prompt" type="text" class="input" placeholder="Find a movie"/>
               </div>      
               <div class="trailing-elements">
-                <div class="_1st-trailing-icon">
+                <div type="submit" class="_1st-trailing-icon">
                   <div class="container">
-                    <div class="state-layer2">
+                    <button class="state-layer2">
                       <svg
                         class="icon3"
                         width="24"
@@ -83,11 +83,11 @@
                           fill="#524343"
                         />
                       </svg>
-                    </div>
+                    </button>
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
           <a href="/UserProfile">
             <button class="button">

@@ -1,6 +1,5 @@
 HIGH PRIORITY
->Implement search bar
-    -Add 'bygenre' panel -> returns results (bygenre) and suggested (recommender 2)
+>Add 'bygenre' panel -> returns results (bygenre) and suggested (recommender 2)
 
 POSSIBLE TWEAKS
 >Add "similar movies" button in movie profile page
