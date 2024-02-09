@@ -1,9 +1,10 @@
 from flask import Flask, request, make_response
 from flask_restful import Resource
-import secrets,  json
+import secrets,  json, os
 from back_end import db, app
 from .auth import login_required, admin_required
 from flask_cors import cross_origin
+import os
 
 class HealthCheck(Resource):
     @cross_origin()
@@ -249,7 +250,21 @@ class ResetAll(Resource):
     @login_required
     @admin_required
     def post(self, user):
-        return {"message": "Reset All"}
+        try:
+            backup_folder = "./back_end/Database" #assuming you run this script from the root of the project
+            backup_files = os.listdir(backup_folder)
+            backup_files_filtered = [file for file in backup_files if file.endswith(".sql")]
+            backup_path = os.path.join(backup_folder, backup_files_filtered[0])
+
+            # MySQL restore command
+            mysql_restore_cmd = f"mysql -h {app.config['MYSQL_HOST']} -u {app.config['MYSQL_USER']} {app.config['MYSQL_DB']} < {backup_path}"
+            # Execute the MySQL restore command
+            os.system(mysql_restore_cmd)
+
+            return {"status": "OK", "message": "Database reset successfully"}, 200
+
+        except Exception as e:
+            return {"status": "failed", "reason": str(e)}, 500
 
 class UserMod(Resource):
     @cross_origin()
