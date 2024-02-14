@@ -1,4 +1,4 @@
-GRANT FILE ON *.* TO 'root'@'localhost';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost';
 SET NAMES utf8mb4;
 
 source ./ntuaflix.sql;
@@ -16,3 +16,4 @@ source ./population/done/imdb_ratings_insertions.sql;
 source ./population/done/name_titles_insertions.sql;
 source ./population/done/crew_insertions.sql;
 source ./population/done/user_preferences_insertions.sql;
+source ./create_user.sql;
