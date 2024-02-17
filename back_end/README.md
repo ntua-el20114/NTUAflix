@@ -11,7 +11,7 @@
 - **Endpoint**: `/login`
 - **Method**: POST
 - **Description**: Allows users to log in.
-- **Parameters**:
+- **Body**:
   - `username` (string, required): The username of the user.
   - `password` (string, required): The password of the user.
 
@@ -20,12 +20,14 @@
 - **Endpoint**: `/logout`
 - **Method**: POST
 - **Description**: Logs out the current user.
+- **Requirements**: Login Required
 
 ### Get App User Data
 
 - **Endpoint**: `/getappuserdata`
 - **Method**: GET
 - **Description**: Retrieves data related to the current user.
+- **Requirements**: Login Required
 
 ## Admin Endpoints
 
