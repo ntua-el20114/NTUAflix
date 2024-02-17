@@ -1,7 +1,7 @@
 # API DOC
 
 ## Base URL
-https::/localhost:PORT/ntuaflix\_api/
+`https://localhost:port/ntuaflix_api/`
 
 
 ## User Access Endpoints
