@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="../static/css/style_catalogue.css" />
+<link rel="stylesheet" href="../static/css/style_global.css" />
+{% extends "base.html" %}
+{% block title %} NTUAflix - ByGenre {% endblock %}
+{% block content %}
+<div class="catalogue">
+  <div class="catalogue-container">
+    <div class="movies-section-restricted">
+      <div class="movies-section">Specific Genre</div>
+      <div class="movies-section2">
+        {% for movie in movies1 %}
+        <a href="/MovieProfile/{{movie['id']}}" class="movie-thumbnail">
+          <!-- <div class="movie-thumbnail"> -->
+            <div class="thumbnail">
+              <img class="thumbnail2" src={{movie['thumbnail']}} onerror="this.onerror=null; this.src='../static/images/no-image-found.png';"/>
+            </div>
+            <div class="movie-or-tv-series-title-goes-here">
+              {% if movie['title'] == 'Null': %}
+                No title
+              {% else %}
+                {{movie['title']}}
+              {% endif %}
+            </div>
+          <!-- </div> -->
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- <div class="movies-section-restricted">
+      <div class="movies-section">Top Rated</div>
+      <div class="movies-section2">
+        {% for movie in top_rated %}
+        <a href="/MovieProfile/{{movie['id']}}">
+          <div class="movie-thumbnail">
+            <div class="thumbnail">
+              <img class="thumbnail2" src={{movie['thumbnail']}} onerror="this.onerror=null; this.src='../static/images/no-image-found.png';"/>
+            </div>
+            <div class="movie-or-tv-series-title-goes-here">
+              {% if movie['title'] == 'Null': %}
+                No title
+              {% else %}
+                {{movie['title']}}
+              {% endif %}
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div> -->
+  </div>
+</div>
+{% endblock %}

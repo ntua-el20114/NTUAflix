@@ -6,6 +6,8 @@ from .routes.PersonProfile import person_profile
 from .routes.SearchResults import search_results
 from .routes.UserProfile import user_profile
 from .routes.Welcome import welcome
+from .routes.ByGenre import bygenre
+
 
 def create_app():
     app = Flask(__name__)
@@ -16,4 +18,5 @@ def create_app():
     app.register_blueprint(search_results)
     app.register_blueprint(user_profile)
     app.register_blueprint(welcome)
+    app.register_blueprint(bygenre)
     return app
