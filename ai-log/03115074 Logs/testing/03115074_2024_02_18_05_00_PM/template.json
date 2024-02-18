@@ -1,0 +1,19 @@
+{
+    "answers": {
+        "phase": "testing",
+        "action": "functional testing",
+        "scope": "api",
+        "action experience": "fair",
+        "prog lang": "n/a",
+        "other prog lang": "n/a",
+        "tool": "chat gpt 4.x",
+        "other tool": "postman",
+        "tool option": "full",
+        "tool experience": "some",
+        "time allocated (h)": "0.1",
+        "time saved estimate (h)": "1", 
+        "quality of ai help": "ready-to-use",
+        "generic feeling": "great as-is",
+        "notes": " "
+    }
+}

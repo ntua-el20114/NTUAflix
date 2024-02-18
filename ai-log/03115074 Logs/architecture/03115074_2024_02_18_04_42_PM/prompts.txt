@@ -1,0 +1,406 @@
+what is api doc ? 
+
+ChatGPT
+API documentation (API doc) is a set of documents and resources that provide information about how to interact with a particular software application or service through its Application Programming Interface (API). APIs allow different software systems to communicate and interact with each other, enabling functionalities such as data retrieval, data manipulation, and system integration.
+
+API documentation typically includes:
+
+Overview: An introduction to the API, including its purpose, capabilities, and use cases.
+Endpoints and Methods: Detailed information about each API endpoint, including the URL, HTTP methods (such as GET, POST, PUT, DELETE), and the parameters required for each request.
+Request and Response Formats: Specifications for the data formats accepted by the API (such as JSON or XML) and examples of request and response payloads.
+Authentication: Instructions for authenticating requests to the API, including any required API keys, tokens, or OAuth credentials.
+Rate Limits and Usage Guidelines: Information about any rate limits imposed on API usage, as well as best practices for efficient use of the API.
+Error Handling: Descriptions of possible error responses returned by the API, along with error codes, messages, and troubleshooting tips.
+Code Examples: Sample code snippets in various programming languages demonstrating how to use the API to perform common tasks.
+SDKs and Libraries: Links to software development kits (SDKs), client libraries, and other tools that simplify integration with the API.
+API documentation plays a crucial role in helping developers understand how to use an API effectively and efficiently. Well-written and comprehensive API documentation can significantly reduce the learning curve for developers and foster adoption of the API within the developer community.
+User
+#User Access Endpoints
+api.add_resource(UserLogin, '/login') #takes body/form parameters username,password
+api.add_resource(UserLogout, '/logout')
+api.add_resource(GetAppUserData, '/getappuserdata')
+
+# Admin Endpoints
+api.add_resource(HealthCheck, '/admin/healthcheck') #1
+api.add_resource(TitleBasics, '/admin/upload/titlebasics') #2
+api.add_resource(TitleAkas, '/admin/upload/titleakas') #3
+api.add_resource(NameBasics, '/admin/upload/namebasics') #4
+api.add_resource(TitleCrew, '/admin/upload/titlecrew') #5
+api.add_resource(TitleEpisode, '/admin/upload/titleepisode') #6
+api.add_resource(TitlePrincipal, '/admin/upload/titleprincipals') #7
+api.add_resource(TitleRatings, '/admin/upload/titleratings') #8
+api.add_resource(ResetAll, '/admin/resetall') #9 (unfinished)
+api.add_resource(UserMod, '/admin/usermod/<string:username>/<string:password>') #10
+api.add_resource(UserInfo, '/admin/users/<string:username>') #11
+
+#System's Functionality Endpoints
+api.add_resource(GetTitle, '/title/<string:titleID>') #A takes url parameter titleID
+api.add_resource(SearchTitle, '/searchtitle') #B , takes body/form parameter titlePart
+api.add_resource(ByGenre, '/bygenre') #C takes body/form parameter gqueryObject(qgenre,minrating,yrFrom(opt),yrTo(opt))
+api.add_resource(GetName, '/name/<string:nameID>') #D takes url parameter nameID
+api.add_resource(SearchName, '/searchname') #E takes body/form parameter namePart
+
+#Movie Rating Web App
+api.add_resource(RateMovie, '/ratemovie')
+api.add_resource(GetLikedMovies, '/getlikedmovies')
+api.add_resource(GetDislikedMovies, '/getdislikedmovies')
+api.add_resource(GetTopRatedMovies, '/gettopratedmovies')
+
+#Extras
+api.add_resource(ChatBot, '/chatbot')
+api.add_resource(UserRole, '/user_role')
+api.add_resource(Movie_Recommender_1, '/movierecommender_1/<string:title>')
+api.add_resource(Movie_Recommender_2, '/movierecommender_2/<string:genre>/<string:username>')
+
+
+can you write an api doc for this api ? 
+
+ChatGPT
+Sure, here's an example of API documentation for the provided API:
+
+Movie Database API Documentation
+
+Welcome to the Movie Database API documentation. This API allows users to access movie information, perform administrative tasks, and interact with a movie rating web application.
+
+Base URL
+arduino
+Copy code
+http://example.com/api/v1
+User Access Endpoints
+Login
+
+Endpoint: /login
+Method: POST
+Description: Allows users to log in.
+Parameters:
+username (string, required): The username of the user.
+password (string, required): The password of the user.
+Logout
+
+Endpoint: /logout
+Method: POST
+Description: Logs out the current user.
+Get App User Data
+
+Endpoint: /getappuserdata
+Method: GET
+Description: Retrieves data related to the current user.
+Admin Endpoints
+Health Check
+
+Endpoint: /admin/healthcheck
+Method: GET
+Description: Performs a health check on the API.
+Upload Title Basics
+
+Endpoint: /admin/upload/titlebasics
+Method: POST
+Description: Uploads title basics data.
+Upload Title Akas
+
+Endpoint: /admin/upload/titleakas
+Method: POST
+Description: Uploads title akas data.
+Upload Name Basics
+
+Endpoint: /admin/upload/namebasics
+Method: POST
+Description: Uploads name basics data.
+Upload Title Crew
+
+Endpoint: /admin/upload/titlecrew
+Method: POST
+Description: Uploads title crew data.
+Upload Title Episode
+
+Endpoint: /admin/upload/titleepisode
+Method: POST
+Description: Uploads title episode data.
+Upload Title Principals
+
+Endpoint: /admin/upload/titleprincipals
+Method: POST
+Description: Uploads title principals data.
+Upload Title Ratings
+
+Endpoint: /admin/upload/titleratings
+Method: POST
+Description: Uploads title ratings data.
+Reset All
+
+Endpoint: /admin/resetall
+Method: POST
+Description: Resets all data (unfinished).
+User Modification
+
+Endpoint: /admin/usermod/<string:username>/<string:password>
+Method: POST
+Description: Modifies user information.
+User Info
+
+Endpoint: /admin/users/<string:username>
+Method: GET
+Description: Retrieves information about a specific user.
+System Functionality Endpoints
+Get Title
+
+Endpoint: /title/<string:titleID>
+Method: GET
+Description: Retrieves information about a specific movie.
+Search Title
+
+Endpoint: /searchtitle
+Method: POST
+Description: Searches for movies based on a provided title part.
+By Genre
+
+Endpoint: /bygenre
+Method: POST
+Description: Retrieves movies by genre and additional criteria.
+Get Name
+
+Endpoint: /name/<string:nameID>
+Method: GET
+Description: Retrieves information about a specific person associated with movies.
+Search Name
+
+Endpoint: /searchname
+Method: POST
+Description: Searches for names based on a provided name part.
+Movie Rating Web App
+Rate Movie
+
+Endpoint: /ratemovie
+Method: POST
+Description: Allows users to rate movies.
+Get Liked Movies
+
+Endpoint: /getlikedmovies
+Method: GET
+Description: Retrieves movies liked by the user.
+Get Disliked Movies
+
+Endpoint: /getdislikedmovies
+Method: GET
+Description: Retrieves movies disliked by the user.
+Get Top Rated Movies
+
+Endpoint: /gettopratedmovies
+Method: GET
+Description: Retrieves top-rated movies.
+Extras
+Chat Bot
+
+Endpoint: /chatbot
+Method: POST
+Description: Interacts with a chatbot.
+User Role
+
+Endpoint: /user_role
+Method: GET
+Description: Retrieves the role of the current user.
+Movie Recommender 1
+
+Endpoint: /movierecommender_1/<string:title>
+Method: GET
+Description: Recommends movies based on a provided title.
+Movie Recommender 2
+
+Endpoint: /movierecommender_2/<string:genre>/<string:username>
+Method: GET
+Description: Recommends movies based on a provided genre and username.
+This documentation provides an overview of the available endpoints, their methods, descriptions, and parameters where applicable. Adjust the base URL and descriptions as per your actual API implementation.
+User
+can you write it in a .md format so I can put it on github
+
+ChatGPT
+Certainly! Here's the API documentation in Markdown format:
+
+markdown
+Copy code
+# Movie Database API Documentation
+
+Welcome to the Movie Database API documentation. This API allows users to access movie information, perform administrative tasks, and interact with a movie rating web application.
+
+## Base URL
+
+http://example.com/api/v1
+
+markdown
+Copy code
+
+## User Access Endpoints
+
+### Login
+
+- **Endpoint**: `/login`
+- **Method**: POST
+- **Description**: Allows users to log in.
+- **Parameters**:
+  - `username` (string, required): The username of the user.
+  - `password` (string, required): The password of the user.
+
+### Logout
+
+- **Endpoint**: `/logout`
+- **Method**: POST
+- **Description**: Logs out the current user.
+
+### Get App User Data
+
+- **Endpoint**: `/getappuserdata`
+- **Method**: GET
+- **Description**: Retrieves data related to the current user.
+
+## Admin Endpoints
+
+### Health Check
+
+- **Endpoint**: `/admin/healthcheck`
+- **Method**: GET
+- **Description**: Performs a health check on the API.
+
+### Upload Title Basics
+
+- **Endpoint**: `/admin/upload/titlebasics`
+- **Method**: POST
+- **Description**: Uploads title basics data.
+
+### Upload Title Akas
+
+- **Endpoint**: `/admin/upload/titleakas`
+- **Method**: POST
+- **Description**: Uploads title akas data.
+
+### Upload Name Basics
+
+- **Endpoint**: `/admin/upload/namebasics`
+- **Method**: POST
+- **Description**: Uploads name basics data.
+
+### Upload Title Crew
+
+- **Endpoint**: `/admin/upload/titlecrew`
+- **Method**: POST
+- **Description**: Uploads title crew data.
+
+### Upload Title Episode
+
+- **Endpoint**: `/admin/upload/titleepisode`
+- **Method**: POST
+- **Description**: Uploads title episode data.
+
+### Upload Title Principals
+
+- **Endpoint**: `/admin/upload/titleprincipals`
+- **Method**: POST
+- **Description**: Uploads title principals data.
+
+### Upload Title Ratings
+
+- **Endpoint**: `/admin/upload/titleratings`
+- **Method**: POST
+- **Description**: Uploads title ratings data.
+
+### Reset All
+
+- **Endpoint**: `/admin/resetall`
+- **Method**: POST
+- **Description**: Resets all data (unfinished).
+
+### User Modification
+
+- **Endpoint**: `/admin/usermod/<string:username>/<string:password>`
+- **Method**: POST
+- **Description**: Modifies user information.
+
+### User Info
+
+- **Endpoint**: `/admin/users/<string:username>`
+- **Method**: GET
+- **Description**: Retrieves information about a specific user.
+
+## System Functionality Endpoints
+
+### Get Title
+
+- **Endpoint**: `/title/<string:titleID>`
+- **Method**: GET
+- **Description**: Retrieves information about a specific movie.
+
+### Search Title
+
+- **Endpoint**: `/searchtitle`
+- **Method**: POST
+- **Description**: Searches for movies based on a provided title part.
+
+### By Genre
+
+- **Endpoint**: `/bygenre`
+- **Method**: POST
+- **Description**: Retrieves movies by genre and additional criteria.
+
+### Get Name
+
+- **Endpoint**: `/name/<string:nameID>`
+- **Method**: GET
+- **Description**: Retrieves information about a specific person associated with movies.
+
+### Search Name
+
+- **Endpoint**: `/searchname`
+- **Method**: POST
+- **Description**: Searches for names based on a provided name part.
+
+## Movie Rating Web App
+
+### Rate Movie
+
+- **Endpoint**: `/ratemovie`
+- **Method**: POST
+- **Description**: Allows users to rate movies.
+
+### Get Liked Movies
+
+- **Endpoint**: `/getlikedmovies`
+- **Method**: GET
+- **Description**: Retrieves movies liked by the user.
+
+### Get Disliked Movies
+
+- **Endpoint**: `/getdislikedmovies`
+- **Method**: GET
+- **Description**: Retrieves movies disliked by the user.
+
+### Get Top Rated Movies
+
+- **Endpoint**: `/gettopratedmovies`
+- **Method**: GET
+- **Description**: Retrieves top-rated movies.
+
+## Extras
+
+### Chat Bot
+
+- **Endpoint**: `/chatbot`
+- **Method**: POST
+- **Description**: Interacts with a chatbot.
+
+### User Role
+
+- **Endpoint**: `/user_role`
+- **Method**: GET
+- **Description**: Retrieves the role of the current user.
+
+### Movie Recommender 1
+
+- **Endpoint**: `/movierecommender_1/<string:title>`
+- **Method**: GET
+- **Description**: Recommends movies based on a provided title.
+
+### Movie Recommender 2
+
+- **Endpoint**: `/movierecommender_2/<string:genre>/<string:username>`
+- **Method**: GET
+- **Description**: Recommends movies based on a provided genre and username.
+You can copy this markdown and save it as a .md file to use it on GitHub or any other markdown-supported platform. Adjust the URLs and descriptions as needed for your specific API implementation.
