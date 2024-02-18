@@ -1,0 +1,1520 @@
+{
+	"info": {
+		"_postman_id": "394ddb55-eff1-4f46-ba55-e7adca7f270b",
+		"name": "ntuaflix-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32182604"
+	},
+	"item": [
+		{
+			"name": "UserLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has valid JSON content type\", function () {",
+							"  pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Token is not empty\", function () {",
+							"  const responseData = pm.response.json();",
+							"  pm.expect(responseData.token).to.exist;",
+							"});",
+							"",
+							"pm.test(\"User role is not empty\", function () {",
+							"  const responseData = pm.response.json();",
+							"  pm.expect(responseData.user_role).to.exist;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "MilesArthur54",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "9DJvfCsTKg",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserLogout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has valid JSON content\", function () {",
+							"  pm.response.to.be.json;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAppUserData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response content type is JSON\", function () {",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"User data properties are not empty\", function () {",
+							"  const appUserData = pm.response.json();",
+							"  pm.expect(appUserData).to.have.property('birthdate');",
+							"  pm.expect(appUserData).to.have.property('email');",
+							"  pm.expect(appUserData).to.have.property('first_name');",
+							"  pm.expect(appUserData).to.have.property('id');",
+							"  pm.expect(appUserData).to.have.property('last_name');",
+							"  pm.expect(appUserData).to.have.property('password');",
+							"  pm.expect(appUserData).to.have.property('token');",
+							"  pm.expect(appUserData).to.have.property('user_role');",
+							"  pm.expect(appUserData).to.have.property('username');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/getappuserdata",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"getappuserdata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TitleBasics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response content type is application/json\", function () {",
+							"  pm.response.to.have.header('Content-Type', 'application/json');",
+							"});",
+							"",
+							"pm.test(\"Response body has valid JSON structure\", function () {",
+							"  pm.expect(pm.response.json()).to.be.an('object').that.has.property('status');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tsv_data",
+							"value": "title_id\ttitleType\toriginalTitle\tisAdult\tstartYear\truntimeMinutes\tgenres\turl\ntt888\tshort\tKlebolin klebt alles\t0\t1990\tNone\tComedy,Short\tNone\ntt1000\tshort\tMutterliebe\t0\t1990\tNone\tShort\tNone\n",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/admin/upload/titlebasics",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"admin",
+						"upload",
+						"titlebasics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TitleAkas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response content type is application/json\", function () {",
+							"  pm.response.to.have.header('Content-Type', 'application/json');",
+							"});",
+							"",
+							"pm.test(\"Response body has valid JSON structure\", function () {",
+							"  pm.expect(pm.response.json()).to.be.an('object').that.has.property('status');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tsv_data",
+							"value": "title_id\tordering\ttitle\tregion\tlanguage\ttypes\tisOriginalTitle\tattributes\ntt0000929\t3\ttpt\tDE\tNone\talternative\t0\tNone\ntt0000977\t2\tlll\tNone\tNone\toriginal\t0\tNone\n",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/admin/upload/titleakas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"admin",
+						"upload",
+						"titleakas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NameBasics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response content type is application/json\", function () {",
+							"  pm.response.to.have.header('Content-Type', 'application/json');",
+							"});",
+							"",
+							"pm.test(\"Response body has valid JSON structure\", function () {",
+							"  const responseData = pm.response.json();",
+							"  pm.expect(responseData).to.be.an('object').that.has.property('status');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tsv_data",
+							"value": "name_id\tprimaryName\tbirthYear\tdeathYear\tprimaryProfession\turl\nnm555\tKati Outinen\t1961\tNone\tactress,writer\thttps://image.tmdb.org/t/p/original/mi78e4O4hQBQygxVVtwXdV2xqiu.jpg\nnm666\tMark H. Ovitz\tNone\tNone\tproducer,production_manager\tNone\n",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/admin/upload/namebasics",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"admin",
+						"upload",
+						"namebasics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TitleCrew",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response content type is application/json\", function () {",
+							"  pm.response.to.have.header('Content-Type', 'application/json');",
+							"});",
+							"",
+							"pm.test(\"Response body has valid JSON structure\", function () {",
+							"  const responseData = pm.response.json();",
+							"  pm.expect(responseData).to.be.an('object').that.has.property('status');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tsv_data",
+							"value": "title_id\tdirector_id\twriter_id\ntt0015414\tnm0000019\tnm0000035\ntt0015724\tnm0000035\tnm0000019\n",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/admin/upload/titlecrew",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"admin",
+						"upload",
+						"titlecrew"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TitleEpisode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response content type is application/json\", function () {",
+							"  pm.response.to.have.header('Content-Type', 'application/json');",
+							"});",
+							"",
+							"pm.test(\"Response body has valid JSON structure\", function () {",
+							"  pm.expect(pm.response.json()).to.be.an('object').that.has.property('status');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tsv_data",
+							"value": "id\tparent_id\tseasonNumber\tepisodeNumber\ntt0073481\ttt0298685\t69\t45\ntt0088283\ttt0806901\t24\t69\n",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/admin/upload/titleepisode",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"admin",
+						"upload",
+						"titleepisode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TitlePrincipal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response content type is application/json\", function () {",
+							"  pm.response.to.have.header('Content-Type', 'application/json');",
+							"});",
+							"",
+							"pm.test(\"Response body has valid JSON structure\", function () {",
+							"  pm.expect(pm.response.json()).to.be.an('object').that.has.property('status');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tsv_data",
+							"value": "title_id\tname_id\tordering\tcategory\tcharacters\ntt0015414\tnm0000019\t1\tactor\tNULL\ntt0034841\tnm0000047\t2\tactor\tNULL\n",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/admin/upload/titleprincipals",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"admin",
+						"upload",
+						"titleprincipals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserMod",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type header is application/json\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Message field is present in the response\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.have.property('message');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Message field should not be empty\", function () {",
+							"  const responseData = pm.response.json();",
+							"  pm.expect(responseData.message).to.exist.and.to.not.be.empty;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Message is a non-null string\", function () {",
+							"  const responseData = pm.response.json();",
+							"",
+							"  pm.expect(responseData).to.be.an('object');",
+							"  pm.expect(responseData.message).to.be.a('string').and.to.not.be.empty;",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "PerezDeborah92",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "cKQA1Dfnn6",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tsv_data",
+							"value": "title_id\taverageRating\tnumVotes\ntt0000929\t5.3\t46\ntt0000977\t5.2\t16\n",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/admin/usermod/PerezDeborah92/cKQA1Dfnn6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"admin",
+						"usermod",
+						"PerezDeborah92",
+						"cKQA1Dfnn6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserInfo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData).to.have.property('username');",
+							"    pm.expect(responseData).to.have.property('user_role');",
+							"    pm.expect(responseData).to.have.property('first_name');",
+							"    pm.expect(responseData).to.have.property('last_name');",
+							"    pm.expect(responseData).to.have.property('birthdate');",
+							"    pm.expect(responseData).to.have.property('email');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Email is in a valid format\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData.email).to.match(/^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$/);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Birthdate is in a valid date format\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.birthdate).to.match(/^\\d{4}-\\d{2}-\\d{2}$/);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					},
+					{
+						"key": "username",
+						"value": "\"PerezDeborah92\"",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "cKQA1Dfnn6",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tsv_data",
+							"value": "title_id\taverageRating\tnumVotes\ntt0000929\t5.3\t46\ntt0000977\t5.2\t16\n",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/admin/users/PerezDeborah92",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"admin",
+						"users",
+						"PerezDeborah92"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResetAll",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response content type is application/json\", function () {",
+							"  pm.response.to.have.header('Content-Type', 'application/json');",
+							"});",
+							"",
+							"pm.test(\"Response body has valid JSON structure\", function () {",
+							"  pm.expect(pm.response.json()).to.be.an('object').that.has.property('status');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tsv_data",
+							"value": "title_id\ttitleType\toriginalTitle\tisAdult\tstartYear\truntimeMinutes\tgenres\turl\ntt888\tshort\tKlebolin klebt alles\t0\t1990\tNone\tComedy,Short\tNone\ntt1000\tshort\tMutterliebe\t0\t1990\tNone\tShort\tNone\n",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/admin/resetall",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"admin",
+						"resetall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTitle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Fixed syntax ",
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response is an object with titleID property\", function () {",
+							"  pm.expect(pm.response.json()).to.be.an('object').that.has.property('titleID');",
+							"});",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/title/tt0000929",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"title",
+						"tt0000929"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.nameID).to.exist;",
+							"    pm.expect(responseData.name).to.exist;",
+							"    pm.expect(responseData.namePoster).to.exist;",
+							"    pm.expect(responseData.birthYr).to.exist;",
+							"    pm.expect(responseData.deathYr).to.exist;",
+							"    pm.expect(responseData.profession).to.exist;",
+							"    pm.expect(responseData.nameTitles).to.exist;",
+							"});",
+							"",
+							"pm.test(\"Name is a non-empty string\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData).to.be.an('object');",
+							"  pm.expect(responseData.name).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Birth year and death year are non-negative integers\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.birthYr).to.be.a('number').and.to.be.at.least(0);",
+							"    pm.expect(responseData.deathYr).to.be.a('number').and.to.be.at.least(0);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Name titles array is present and has expected number of elements\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.nameTitles).to.exist.and.to.be.an('array');",
+							"    pm.expect(responseData.nameTitles).to.have.lengthOf.at.least(1, \"Name titles array should have at least one element\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/name/nm0000019",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"name",
+						"nm0000019"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchTitle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.text()).to.be.ok;",
+							"    pm.expect(pm.response.json()).to.not.be.undefined;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "titlePart",
+							"value": "Mi",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/searchtitle",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"searchtitle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ByGenre",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response content type is 'text/html'\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include('text/html');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Start year is a non-negative integer\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.result).to.be.an('array');",
+							"    ",
+							"    responseData.result.forEach(function(item) {",
+							"        pm.expect(item.startYear).to.be.a('number').and.to.be.at.least(0);",
+							"    });",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "qgenre",
+							"value": "Action",
+							"type": "text"
+						},
+						{
+							"key": "minrating",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/bygenre",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"bygenre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body is a valid JSON\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "namePart",
+							"value": "Jo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/searchname",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"searchname"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RateMovie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response content type is JSON\", function () {",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response body is a valid JSON\", function () {",
+							"  pm.expect(pm.response.json()).to.be.an('object').that.has.property('status');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rating",
+							"value": "-1",
+							"type": "text"
+						},
+						{
+							"key": "title_id",
+							"value": "tt0000929",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/ratemovie",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"ratemovie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLikedMovies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Fixed syntax to parse response as JSON",
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an object with result property\", function () {",
+							"  pm.expect(pm.response.json()).to.be.an('object').that.has.property('result');",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/getlikedmovies",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"getlikedmovies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDislikedMovies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Fixed JSON parsing",
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an object with result property\", function () {",
+							"  pm.expect(pm.response.json()).to.be.an('object').that.has.property('result');",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/getdislikedmovies",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"getdislikedmovies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTopRatedMovies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is a valid JSON\", function () {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/gettopratedmovies",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"gettopratedmovies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChatBot",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is application/json\", function () {",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Response is an object with Response property\", function () {",
+							"  pm.expect(pm.response.json()).to.be.an('object').that.has.property('Response');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Sentence",
+							"value": "Action movies",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/chatbot",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"chatbot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MovieRecommender",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Fixed syntax",
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is an object with result property\", function () {",
+							"  pm.expect(pm.response.json()).to.be.an('object').that.has.property('result');",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-OBSERVATORY-AUTH",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDgzNTEzODAsImlhdCI6MTcwODI2NDk4MCwianRpIjoiZTBkYmIyMzgzMmFlM2ViZTYwNzc5Y2FiNGFkNTlhN2YiLCJzdWIiOjJ9.sRu6pHf_3osFws3l3j4ssYpVbhmmUelV7WvFY6Ixcps",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:9876/ntuaflix_api/movierecommender_1/Klebolin klebt alles",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9876",
+					"path": [
+						"ntuaflix_api",
+						"movierecommender_1",
+						"Klebolin klebt alles"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.sendRequest(\"https://ntuaflix-api/title/<string:tt0000929>\", function (err, response) {",
+					"    console.log(response.json());",
+					"});"
+				]
+			}
+		}
+	]
+}
