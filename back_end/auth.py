@@ -236,8 +236,7 @@ class UserLogout(Resource):
     @login_required
     def post(self, user):
         if 'X-OBSERVATORY-AUTH' in request.headers:
-            response = make_response('', 200)
-            return response
+            return {'message': 'User logged out'}, 200
         else:
             # The token is not present in the headers, which means the user is already considered logged out
             return {'message': 'User is already logged out'}, 200
@@ -252,6 +251,7 @@ class GetTitle(Resource):
             return make_response(json_result, 400)
         response = make_response(json_result, 200)
         response.headers.add('X-OBSERVATORY-AUTH', user["token"])
+        response.headers['Content-Type'] = 'application/json'
         return response
 
 class SearchTitle(Resource):
@@ -333,6 +333,7 @@ class ByGenre(Resource):
                           'titleType': title['titleType'],
                           'originalTitle': title['originalTitle'],
                           'startYear': title['startYear'],
+                          'titlePoster': title['url'],
                           'genres': title['genres']}
                          for title in titles]
 
