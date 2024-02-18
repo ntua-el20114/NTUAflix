@@ -12,13 +12,16 @@ def show():
 
     # Get the genre from the query parameters
     selected_genre = request.args.get('qgenre')
+    minrating = request.args.get('minrating')
+    yrFrom = request.args.get('yrFrom')
+    yrTo = request.args.get('yrTo')
 
-    print(f"Received genre parameter: {selected_genre}")
+    print(f"Received genre parameter: {selected_genre}") ##ok
 
     # Get movies
     movies1 = []
     url = 'http://127.0.0.1:9876/ntuaflix_api/bygenre'
-    params = {'qgenre': selected_genre}
+    params = {'qgenre': selected_genre, 'minrating': minrating, 'yrFrom':yrFrom, 'yrTo': yrTo}
     response = requests.get(url, headers = {'X-OBSERVATORY-AUTH': session['user_token']}, params=params)
     if response.status_code == 200:
         too_long = False
