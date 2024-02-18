@@ -17,7 +17,7 @@ def show():
     yrFrom = 1000
     yrTo = 3000
 
-    print(f"Received minrating parameter: {minrating}") ##ok
+    #print(f"Received minrating parameter: {minrating}") ##ok
 
     # Get movies
     movies1 = []
@@ -25,6 +25,10 @@ def show():
     data = {'qgenre': qgenre, 'minrating': minrating, 'yrFrom':yrFrom, 'yrTo': yrTo}
     response = requests.get(url, headers = {'X-OBSERVATORY-AUTH': session['user_token']}, data=data)
     #print(f"Response: {response.text}") 
+    #print("test ter")
+    #print(f"Response1: {response['result']}") 
+    result_dict = response.json()
+    print(result_dict)
 
     if response.status_code == 200:
         movies1 = [{"title": movie["originalTitle"], "thumbnail": movie["titlePoster"], "id": movie["title_id"]} 
