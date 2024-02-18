@@ -1,0 +1,17 @@
+User
+how can I add a file in postman when testing for an api post call ? 
+
+ChatGPT
+To add a file in Postman when testing an API for a POST call, you need to follow these steps:
+
+Open Postman: Start by launching Postman on your computer.
+Create a New Request: Click on the "New" button or the "+" tab to open a new request tab.
+Set the Request Type to POST: In the new request tab, select "POST" from the dropdown menu that allows you to choose the type of request (GET, POST, PUT, etc.).
+Enter the API Endpoint: In the URL field, enter the API endpoint you want to test.
+Select 'Body': Below the URL field, you'll see a row of tabs such as Params, Authorization, Headers, Body, etc. Click on the "Body" tab.
+Choose 'form-data': In the Body tab, you will find several options including none, form-data, x-www-form-urlencoded, raw, binary, and GraphQL. Select "form-data".
+Add the File Field: In the form-data view, you can add key-value pairs. To add a file, enter the key (name) for the file parameter as expected by the API. On the right side of the key, you'll see a dropdown that defaults to "Text". Click on it and change it to "File".
+Upload the File: Once you've switched to "File", a "Select Files" button will appear. Click on it, and a file dialog will open. Use it to navigate to and select the file you want to upload.
+Set Headers (if required): Some APIs require specific headers for file uploads, such as "Content-Type". If that's the case with your API, switch to the "Headers" tab and add the necessary headers.
+Send the Request: After setting up your request, click the "Send" button to make the POST call with the file included.
+You should then see the response from the API in the lower section of Postman. This response will give you information about whether the file upload was successful or if there were any errors.

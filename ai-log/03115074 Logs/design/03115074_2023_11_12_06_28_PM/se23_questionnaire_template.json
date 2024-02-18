@@ -1,0 +1,19 @@
+{
+    "answers": {
+        "phase": "design",
+        "action": "use case specification",
+        "scope": "uml activity",
+        "action experience": "big",
+        "prog lang": "n/a",
+        "other prog lang": " ",
+        "tool": "chat gpt 3.x",
+        "other tool": " ",
+        "tool option": "free",
+        "tool experience": "none",
+        "time allocated (h)": "0.2",
+        "time saved estimate (h)": "0.5", 
+        "quality of ai help": "major modifications needed",
+        "generic feeling": "great in the future",
+        "notes": " "
+    }
+}
