@@ -24,10 +24,10 @@ def show():
     url = 'http://127.0.0.1:9876/ntuaflix_api/bygenre'
     data = {'qgenre': qgenre, 'minrating': minrating, 'yrFrom':yrFrom, 'yrTo': yrTo}
     response = requests.get(url, headers = {'X-OBSERVATORY-AUTH': session['user_token']}, data=data)
-    print(f"Response: {response.text}") 
+    #print(f"Response: {response.text}") 
 
     if response.status_code == 200:
-        movies1 = [{"title": movie["originalTitle"], "thumbnail": movie["titlePoster"], "id": movie["titleID"]} 
+        movies1 = [{"title": movie["originalTitle"], "thumbnail": movie["titlePoster"], "id": movie["title_id"]} 
             for movie in response.json()["result"]]
     else:
         flash("There was an error getting by genre movies", "error")
@@ -49,7 +49,7 @@ def show():
     #                     if rec['id'] == title['titleID']:
     #                         exists = True
     #                         break
-    #                 if not exists: movies1.append({"title": title["originalTitle"], "thumbnail": title["titlePoster"], "id": title["titleID"]})
+    #                 if not exists: movies1.append({"tit   le": title["originalTitle"], "thumbnail": title["titlePoster"], "id": title["titleID"]})
                     
     #                 # If recommendations list gets too long, keep only the best rec for each movie
     #                 if len(movies1) > 60: break
