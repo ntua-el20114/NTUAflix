@@ -5,8 +5,8 @@ command = [
     "python",  # the Python interpreter
     "../../cli-client/se2344.py",  # the path to your Python script
     "login",  # the command and its arguments
-    "--param1", "EriksenIvan99",
-    "--param2", "FKZzWwX70J"
+    "--param1", "MilesArthur54",
+    "--param2", "9DJvfCsTKg"
 ]
 
 # Run the command and capture the output and return code
