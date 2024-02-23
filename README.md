@@ -67,7 +67,7 @@ Ensure you have the following installed:
 
 ## Demo
 
-Check out our [YouTube demo](https://www.youtube.com/) to see Ntuaflix in action!
+Check out our [YouTube demo](https://youtu.be/mol31D4og8g) to see Ntuaflix in action!
 
 ## Collaborators
 
