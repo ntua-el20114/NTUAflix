@@ -72,8 +72,9 @@ Check out our [YouTube demo](https://www.youtube.com/watch?v=YuB34KlZ1Mo) to see
 ## Authors
 
 - **Peter Avgerinos** ([@ntua-el15074](https://github.com/ntua-el15074))
-- **Christos Hadjichristofi** ([@ntua-el19202](https://github.com/ntua-el19202) / [@ntua-el19204](https://github.com/ntua-el19204))
 - **Tereza Anna Vassiliou** ([@ntua-el20403](https://github.com/ntua-el20403))
 - **Nick Oikonomou** ([@ntua-el20014](https://github.com/ntua-el20014))
 - **Michael Raftopoulos** ([@ntua-el20114](https://github.com/ntua-el20114))
+- **Giorgos Delatolas** ([@ntua-19202](https://github.com/ntua-19202)])
+- **Giorgos Kyriakos** ([@ntua-19204](https://github.com/ntua-19204)])
 
